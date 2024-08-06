@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'livro/livro.css' %}">
+    <title>Livro</title>
+</head>
+<body>
+    
+    <div class="container3">
+        <header>
+            <nav class="navbar">
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <div>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <div class="mae-livro">
+            <div class='info-livro'>
+                <div class="livro-info">
+                    <img src="{% static 'img/evlynhugo.jpg' %}">
+                    <div>
+                        <p><em>Taylor Jenkins Reid</em></p>
+                    </div>
+                    <div class="acao-livro">
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                    </div>
+                    <p>(5.550 Avaliações)</p>
+                    <div class="acao-livro">
+                        <button>Adicionar</button>
+                    </div>
+                </div>
+                <div class="coisa-livro">
+                    <div style="background-color: green;">
+                        <h3 style="margin-left: 8px; margin-bottom: 4px; position: relative; color: white;">Os Sete Maridos de Evelyn Hugo</h3>
+                    </div>
+                    <p class="titulo-sinopse">Sinopse</p>
+                    <div class="sinopse"> 
+                        <p>Lendária estrela de Hollywood, Evelyn Hugo sempre esteve sob os holofotes ― seja estrelando uma produção 
+                            vencedora do Oscar, protagonizando algum escândalo ou aparecendo com um novo marido… pela sétima vez. Agora, 
+                            prestes a completar oitenta anos e reclusa em seu apartamento no Upper East Side, a famigerada atriz decide 
+                            contar a própria história ― ou sua “verdadeira história” ―, mas com uma condição: que Monique Grant, jornalista 
+                            iniciante e até então desconhecida, seja a entrevistadora. Ao embarcar nessa misteriosa empreitada, a jovem repórter 
+                            começa a se dar conta de que nada é por acaso ― e que suas trajetórias podem estar profunda e irreversivelmente 
+                            conectadas.</p>
+                    </div>
+                    <div class="sobre-livro">
+                        <div class="cor-info">
+                            <p>Curtidas</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                        <div class="cor-info">
+                            <p>Leram</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                        <div class="cor-info">
+                            <p>Lendo</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                        <div class="cor-info">
+                            <p>Querem Ler</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                        <div class="cor-info">
+                            <p>Relendo</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                        <div class="cor-info">
+                            <p>Abandonaram</p>
+                            <p style="font-weight: bold; color: green;">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

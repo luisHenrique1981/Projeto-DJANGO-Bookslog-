@@ -1,0 +1,77 @@
+.mae-livro {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-livro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-left: 160px;
+    margin-right: 160px;
+}
+
+.livro-info {
+    align-items: center;
+    text-align: center;
+}
+
+.retangulo {
+    width: 170px; 
+    height: 255px;
+    overflow: hidden;
+    position: fixed;
+}
+
+.retangulo img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+}
+
+.acao-livro {
+    margin-top: 4px;
+}
+
+.titulo-sinopse {
+    text-decoration: underline;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.sinopse {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.coisa-livro {
+    margin-top: 14px;
+}
+
+.sobre-livro {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-evenly;
+}
+
+.cor-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #F5F5F5;
+    width: 12%;
+    height: 50px;
+    border-radius: 12px;
+}
+
+
+.navegacao {
+    display: flex;
+    margin-left: 4px;
+}

@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet"  href="{% static 'grupos/grupos.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <aside id="menuoculto" class="menuoculto">
+        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="#">Perfil</a>
+        <a href="#">Grupos</a>
+        <a href="#">Configurações</a>
+        <a href="#">Ajuda</a>
+        <div class="logo_menulateral">
+            <p>Bookslog</p>
+            <i class="fa-solid fa-book"></i>
+        </div>
+    </aside>
+    <div class="container-grupos">
+        <div>
+            <header>
+                <nav class="navbar">
+                    <div class="nav-logo">
+                        <a href="{% url 'home' %}" class="texto">Bookslog</a>
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <h1 class="titulo-grupos">Seus Grupos</h1>
+                    <div>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-bars" onclick="abrir_nav()"></i>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+        </div>
+    </div>
+    <main class="items-dos-grupos">
+        <div class="titulo-grupos">
+            <div class="">
+                <img src="{% static 'img/morroventos.jpg' %}" class="">
+            </div>
+            <div>
+                <p>Clube do livro do IFRO</p>
+            </div>
+        </div>
+        <div class="titulo-grupos">
+            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
+            <div><p>Clube para fãs da Clarice Lispector</p></div>
+        </div>
+        <div class="titulo-grupos">
+            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
+            <div><p>Clube para fãs de Percy Jackson</p></div>
+        </div>
+        <div class="titulo-grupos">
+            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
+            <div><p>Clube do livro do Morro dos Ventos Uivantes</p></div>
+        </div>
+        <div class="titulo-grupos">
+            <img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda">
+            <p>Clube do Livro de Orgulho e Preconceito</p>
+        </div>
+        <div class="titulo-grupos">
+            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
+            <div><p>Clube do livro para fãs de comêdias românticas</p></div>
+        </div>    
+    </main>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

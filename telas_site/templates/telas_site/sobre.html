@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <title>Sobre nós</title>
+</head>
+<body>
+    <aside id="menuoculto" class="menuoculto">
+        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
+        <a href="#">Home</a>
+        <a href="#">Perfil</a>
+        <a href="{% url 'grupos' %}">Grupos</a>
+        <a href="#">Configurações</a>
+        <a href="#">Ajuda</a>
+        <div class="logo_menulateral">
+            <p>Bookslog</p>
+            <i class="fa-solid fa-book"></i>
+        </div>
+    </aside>
+    <div class="container3">
+        <header>
+            <nav class="navbar">
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <ul class="lista-navbar">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#">Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'equipe' %}">Equipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./modelos.html">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./caso.html">Caso de Uso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./dicionario.html">Dicionário</a>
+                    </li>
+                </ul>
+                <div class="">
+                    <button class="btn-default">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main class="principal">
+            <h1>Bem-vindo ao nosso universo literário!</h1>
+            <div class="conteudo-sobre">
+                <p>
+                    Neste refúgio virtual, cada livro se torna uma janela 
+                    aberta para um universo único, convidando-nos a explorar 
+                    paisagens inexploradas, conhecer personagens cativantes 
+                    e experimentar emoções intensas. Aqui, nos perdemos nas 
+                    páginas como em um labirinto encantado, onde o tempo 
+                    desacelera e a imaginação voa livremente. Cada obra é mais 
+                    do que uma simples história; é um convite para uma jornada 
+                    de autodescoberta, um mergulho profundo nas profundezas da 
+                    alma humana.
+                </p>
+                <p>Neste cantinho acolhedor, criamos um espaço para os apaixonados 
+                    por livros se reunirem, compartilharem suas paixões e descobrirem 
+                    novas aventuras literárias. Somos um coletivo de sonhadores, unidos 
+                    pela crença no poder transformador das palavras e pela vontade de 
+                    explorar as infinitas possibilidades que os livros oferecem. Aqui, 
+                    cada página virada é uma oportunidade para expandir nossos horizontes, 
+                    desafiar nossas perspectivas e conectar-nos com outras mentes curiosas 
+                    que compartilham nossa paixão pela leitura.
+                </p>
+                <div class="texto_sobre">
+                    <img src="{% static 'img/leitura2.jpg' %}">
+                    <p>
+                        Além disso, este espaço é um convite para a celebração da diversidade 
+                        literária, onde diferentes vozes e perspectivas são valorizadas e celebradas. 
+                        Aqui, você encontrará obras que abrangem uma ampla gama de gêneros, estilos 
+                        e temas, desde clássicos intemporais até as mais recentes inovações da 
+                        literatura contemporânea. Estamos comprometidos em promover a inclusão e a 
+                        representatividade, garantindo que todos os leitores encontrem histórias que 
+                        ressoem com suas experiências e identidades.
+                    </p>
+                    <img src="{% static 'img/leitura3.jpg' %}">
+                </div>
+                <p>
+                    Seja você um devorador voraz de romances, um apreciador de poesia, um explorador 
+                    dos confins do universo da fantasia, ou um entusiasta ávido por obras de não-ficção, 
+                    há sempre algo especial esperando por você aqui. Este é um espaço de encontro, de 
+                    troca de ideias e de descoberta mútua, onde as fronteiras entre os mundos fictícios 
+                    e reais se dissolvem, dando lugar a uma comunidade unida pelo amor à literatura.
+                </p>
+                <p>
+                    Então, venha fazer parte desta jornada extraordinária, onde cada página virada 
+                    é uma aventura, e cada livro é uma porta para um novo horizonte de possibilidades. 
+                    Estamos ansiosos para compartilhar essa viagem com você, para explorar juntos os 
+                    tesouros escondidos nos corredores da imaginação e para criar memórias duradouras 
+                    através das histórias que nos conectam. Seja bem-vindo a este espaço mágico, onde 
+                    os livros são mais do que meras palavras impressas; são portais para infinitas 
+                    realidades e fontes de inspiração inesgotável.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <p class="footer-copy">Copyright &lt;CHOCOIFS/&gt; 2024</p>
+            <p class="footer-autor">Feito com muito amor e carinho pelos Chocoifs!</p>
+        </footer>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

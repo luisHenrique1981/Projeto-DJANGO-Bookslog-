@@ -1,0 +1,91 @@
+/*Estilização página CADASTRO*/
+
+.container-cadastro {
+    width: 800px;
+    height: 636px;
+    margin: auto; /* Isso centraliza horizontalmente */
+    background-color: green;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.logo-cadastro {
+    color: white;
+    display: flex;
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-align: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.logo-cadastro > i {
+    margin-top: 8px;
+    color: white;
+    font-size: 45px;
+}
+
+.formulario-cadastro {
+    justify-content: center;
+    text-align: center;
+}
+
+.inputs {
+    padding: 40px;
+}
+
+.input-box {
+    padding: 12px;
+}
+
+.formula {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field i {
+    font-size: 14px;
+    color: white;
+    margin-bottom: -2px;
+}
+
+.input-box label > input {
+    font-size: 14px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid white;
+}
+
+.input-box input::placeholder {
+    color: whitesmoke;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+
+}
+
+#cadastro_botao a {
+    text-decoration: none;
+    font-size: 12px;
+    color: green;
+}
+
+#cadastro_botao {
+    border: none;
+    background: white;
+    color: green;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 80%;
+}
+

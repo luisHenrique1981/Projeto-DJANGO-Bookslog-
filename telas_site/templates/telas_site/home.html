@@ -1,0 +1,218 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <header>
+                <nav class="navbar">
+                    <div class="nav-logo">
+                        <span class="texto">Bookslog</span>
+                        <i class="fa-solid fa-book"></i>
+                    </div>
+                    <ul class="lista-navbar">
+                        <li class="nav-item active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'sobre' %}">Sobre nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'equipe' %}">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./modelos.html">Modelos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./caso.html">Caso de Uso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./dicionario.html">Dicionário</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <button class="btn-default">
+                            <i class="fa-solid fa-bars" onclick="abrir_nav()"></i>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+            <div class="banner-livros" style="background-image: url('{% static 'img/banner_livros.jpg' %}')">
+                <h1 class="titulo-home">Escreva resenhas sobre livros de todos os tipos!</h1>
+                <div class="botoes">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <a href="{% url 'catalogo' %}"><button>Explorar Catálogo</button></a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        <div>
+            <main>
+                <div class="">
+                    <h2 class="titulo-home-livros">Navegue Pelas Nossas Categorias!</h2>
+                    <div class="total">
+                        <div class="livros1">
+                            <h3><a href="{% url 'catalogo' %}">Romance</a></h3>
+                            <div class="livros2">
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/orgulho.jpg' %}">
+                                    </div>
+                                    <p>Orgulho e Preconceito</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/hipotese.jpg' %}">
+                                    </div>
+                                    <p>A Hipótese do Amor</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/amor.jpg' %}">
+                                    </div>
+                                    <p>Amor, Teoricamente</p>
+                                </div>
+                                <div class="livro">
+                                    <a href="{% url 'livro' %}">
+                                        <div class="retangulo">
+                                            <img src="{% static 'img/evlynhugo.jpg' %}">
+                                        </div>
+                                        <p>Os 7 Maridos de Evlyn Hugo</p>
+                                    </a>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/delilah.jpg' %}">
+                                    </div>
+                                    <p>Delilah Green não está nem ai</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/astrid.jpg' %}">
+                                    </div>
+                                    <p>Astrid Parker Nunca falha</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/girls.jpg' %}">
+                                    </div>
+                                    <p>Girls Like Girls</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/jogadaamor.jpg' %}">
+                                    </div>
+                                    <p>A Jogada do Amor</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/garotoscemiterio.jpg' %}">
+                                    </div>
+                                    <p>Os Garotos do Cemitério</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/garotamar.jpg' %}">
+                                    </div>
+                                    <p>A Garota do Mar</p>
+                                </div>
+                            </div>
+                            <h3><a href="{% url 'catalogo' %}">Aventura e Fantasia</a></h3>
+                            <div class="livros2">
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/harry.jpg' %}">
+                                    </div>
+                                    <p>Harry Potter e a Pedra Filosofal</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/percy.jpg' %}">
+                                    </div>
+                                    <p>Percy Jackson e o Ladrão de Raios</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/narnia.jpg' %}">
+                                    </div>
+                                    <p>As Crônicas de Nárnia: O Leão, a Feiticeira e o Guarda-Roupa</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/bussolaouro.jpg' %}">
+                                    </div>
+                                    <p>A Bússola de Ouro</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                                    </div>
+                                    <p>A Guerra dos Tronos</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/torrenegra.jpg' %}">
+                                    </div>
+                                    <p>A Torre Negra: O Pistoleiro</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/heroisolimpo.jpg' %}">
+                                    </div>
+                                    <p>Os Heróis do Olimpo: O Herói Perdido</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/hobbit.jpg' %}">
+                                    </div>
+                                    <p>O Hobbit</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/duna.jpg' %}">
+                                    </div>
+                                    <p>Duna</p>
+                                </div>
+                                <div class="livro">
+                                    <div class="retangulo">
+                                        <img src="{% static 'img/sombraossos.jpg' %}">
+                                    </div>
+                                    <p>Sombra e Ossos</p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="categorias">
+                            <h3>Categorias</h3>
+                            <p>Romance</p>
+                            <p>Aventura e Fantasia</p>
+                            <p>Ficção Científica</p>
+                            <p>Drama</p>
+                            <p>Comédia</p>
+                            <p>Terror</p>
+                            <p>Biografias</p>
+                            <p>Quadrinhos</p>
+                            <p>Receitas</p>
+                    </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer>
+        </footer>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

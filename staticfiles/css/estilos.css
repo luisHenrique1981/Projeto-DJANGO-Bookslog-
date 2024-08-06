@@ -1,0 +1,470 @@
+.nav-logo > i {
+    color: green;
+}
+
+header {
+    width: 100%;
+    padding: 28px 8%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: green;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-size: 24px;
+    text-decoration: underline;
+    text-decoration-color: green;
+}
+
+.lista-navbar {
+    display:flex;
+    list-style: none;
+    gap: 48px;
+}
+
+.banner-livros {
+    height: 50vh;
+    background-image: url("{% static 'img/banner_livros.jpg' %}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.titulo-home{
+    color: black;
+    text-align: center;
+    padding: 40px;
+}
+
+.botoes {
+    padding: 40px;
+    text-align: center;
+}
+
+.botoes button {
+    border: none;
+    background: green;
+    width: 12%;
+    height: 50px;
+    color: white;
+    border-radius: 12px;
+}
+
+.botoes button:hover {
+    transform: scale(1.05);
+}
+
+.botoes i {
+    color: white;
+}
+
+.botoes i:hover {
+    transform: scale(1.05);
+}
+
+.btn-default {
+    margin-left: 12px;
+    border: none;
+    background-color: transparent;
+    font-size: 1.0rem;
+    cursor: pointer;
+}
+
+.total {
+    display: flex;
+    padding: 12px;
+}
+
+.livros1 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+.livros2 {
+    display: flex;
+    gap:2rem;
+    overflow-x: scroll;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.retangulo {
+    width: 120px; 
+    height: 175px;
+    overflow: hidden;
+}
+
+.retangulo img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+}
+
+.livro {
+    text-align: center;
+}
+
+.menuoculto {
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: green;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.menuoculto a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display:block;
+    transition: 0.3s;
+}
+
+.menuoculto a:hover {
+    color: black;
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px; 
+    margin-left: 50px;
+
+}
+
+.logo_menulateral {
+    display: flex;
+    color:white;
+    font-size: 20px;
+    justify-content: center;
+    text-decoration: underline;
+    text-decoration-color: white;
+    gap:4px;
+    margin-top: 350px;
+}
+
+@media screen and(max-height: 450px){
+    .menuoculto{
+        padding-top: 15px;
+    }
+
+    .menuoculto a {
+        font-size: 18px;
+    }
+}
+
+/*Estilização página LOGIN*/
+
+.conteiner2 {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.cor_login {
+    background-color: green;
+    width: 50%; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lado_verde {
+    color: white
+}
+
+.sublinhado_lado_verde > i {
+    color: white;
+    font-size: 32px;
+    
+}
+
+.sublinhado_lado_verde {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    
+}
+
+.texto_lado_verde {
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    display: flex;
+    padding: 40px;
+    font-size: 20px;
+
+}
+
+.textinho_lado_verde {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.texto_lado_branco {
+    color: black;
+    padding: 40px;
+    font-size: 32px;
+}
+
+.main_lado_branco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: black;
+    width: 50%;
+    height: 100%;
+}
+
+.login {
+    padding: 15px;
+}
+
+.formula {
+    display: flex;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    font-size: 14px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid black;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: black;
+}
+
+.input-field i {
+    font-size: 14px;
+    color: black;
+    margin-bottom: -2px;
+}
+
+.input-field input {
+    width: 260px;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+#forgot_password a {
+    text-decoration: none ;
+    font-size: 12px;
+    color: black;
+}
+
+#forgot_password a:hover {
+    color: green;
+}
+
+#sign_in a {
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+}
+
+#sign_in a:hover {
+    color: green;
+}
+
+#login_button {
+    border: none;
+    background: green;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 35%;
+}
+
+#login_button a {
+    text-decoration: none;
+    color: white;
+}
+
+#login_button:hover {
+    transform: scale(1.05);
+}
+
+.nav-item.active a {
+    color: green;
+    border-bottom: 2px solid;
+}
+
+
+/*Estilização página CADASTRO*/
+
+.container-cadastro {
+    align-items: center;
+    width: 40%;
+    background-color: green;
+}
+
+.logo-cadastro {
+    display: flex;
+}
+
+
+/*Estilização página SOBRE NÓS*/
+
+
+.principal h1 {
+    margin-top: 24px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.conteudo-sobre {
+    margin-top: 12px;
+    margin-left: 100px;
+    margin-right: 100px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+.conteudo-sobre p {
+    text-indent: 40px;
+}
+
+.texto_sobre {
+    margin-top: 12px;
+    display: flex;
+}
+
+.texto_sobre p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}
+
+footer {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/*Estilização página EQUIPE*/
+
+.sobre_empregados {
+    display: flex;
+    flex-direction: column;
+}
+
+.sobre_empregados h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.fotos-equipe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foto1 {
+    margin-right: 40px;
+    margin-top: 40px;
+    display: flex;
+}
+
+.sobre-programadores {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.sobre-programadores p {
+    font-size: 20px;
+}
+
+.redondo {
+    width: 150px;
+    height: 160px;
+    overflow: hidden; 
+    border-radius: 50%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.imagem-redonda {
+    display: block;
+    width: 100%;
+    height: auto; 
+}
+
+.sobre-equipe h2 {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.sobre-equipe p {
+    font-size: 20px;
+    margin-top: 14px;
+    margin-left: 180px;
+    margin-right: 180px;
+    text-align: justify;
+    text-indent: 50px;
+}
+
+
+/*Estilização página CATÁLOGO*/
+
+.navegacao {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    list-style: none;
+}

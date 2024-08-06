@@ -1,0 +1,128 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <title>Equipe</title>
+</head>
+<body>
+    <aside id="menuoculto" class="menuoculto">
+        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
+        <a href="#">Home</a>
+        <a href="#">Perfil</a>
+        <a href="{% url 'grupos' %}">Grupos</a>
+        <a href="#">Configurações</a>
+        <a href="#">Ajuda</a>
+        <div class="logo_menulateral">
+            <p>Bookslog</p>
+            <i class="fa-solid fa-book"></i>
+        </div>
+    </aside>
+    <div class="container4">
+        <header>
+            <nav class="navbar">
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <ul class="lista-navbar">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'sobre' %}">Sobre nós</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#">Equipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./modelos.html">Modelos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./caso.html">Caso de Uso</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./dicionario.html">Dicionário</a>
+                    </li>
+                </ul>
+                <div class="icones">
+                    <button class="btn-default">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main class="sobre_empregados">
+            <h1>Nossa Equipe</h1>
+            <div class="fotos-equipe">
+                <div class="foto1">
+                    <div class="sobre-programadores">
+                        <div class="redondo">
+                            <img src="{% static 'img/alan2.jpg' %}" class="imagem-redonda">
+                        </div>
+                        <h2>Programador</h2>
+                        <p>Alan Guilherme</p>
+                    </div>
+                    <div class="sobre-programadores">
+                        <div class="redondo">
+                            <img src="{% static 'img/gabriel2.jpg' %}" class="imagem-redonda">
+                        </div>
+                        <h2>Programador</h2>
+                        <p>Gabriel Cunha</p>
+                    </div>
+                    <div class="sobre-programadores">
+                        <div class="redondo">
+                            <img src="{% static 'img/luis3.jpg' %}" class="imagem-redonda">
+                        </div>
+                        <h2>Programador</h2>
+                        <p>Luis Henrique</p>
+                    </div>
+                    <div class="sobre-programadores">
+                        <div class="redondo">
+                            <img src="{% static 'img/tamara.jpg' %}"class="imagem-redonda">
+                        </div>
+                        <h2>Programadora</h2>
+                        <p>Tâmara Lucena</p>
+                    </div>
+                </div>
+            </div>
+            <div class="sobre-equipe">
+                <h2>Sobre os Programadores</h2>
+                <p>Apresentamos nossa equipe de desenvolvedores, um grupo dedicado 
+                    e apaixonado por transformar ideias em realidade digital. 
+                    Combinando habilidades técnicas afiadas e criatividade sem limites, 
+                    estamos aqui para enfrentar qualquer desafio que o mundo da programação nos traga.
+                    Juntos, formamos um time coeso e colaborativo, sempre buscando novas maneiras de 
+                    inovar e superar expectativas. Movidos pela curiosidade e pelo desejo de excelência, 
+                    estamos prontos para enfrentar qualquer desafio e trazer soluções criativas para a 
+                    vida digital. Se você está em busca de uma equipe comprometida, talentosa e apaixonada 
+                    pelo que faz, não precisa procurar mais. Estamos aqui para tornar sua visão uma realidade 
+                    digital extraordinária.
+                </p>
+                <p>
+                    Cada membro da equipe foi responsável por algumas funcionalidades do sistema. O Alan foi
+                    responsável por elaborar o diagrama de caso de uso do nosso sistema, o Luis foi responsável
+                    pelo desenvolvimento do banco de dados, o Gabriel foi responsável pelo design da página e a 
+                    estilização dela e a Tâmara foi responsável pela construção do dicionário de dados. Além disso,
+                    todos contribuiram na programação back-end e front-end do site, utilizando framework e linguagens
+                    de programação.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <p class="footer-copy">Copyright &lt;CHOCOIFS/&gt; 2024</p>
+            <p class="footer-autor">Feito com muito amor e carinho pelos Chocoifs!</p>
+        </footer>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <title>Catálogo</title>
+</head>
+<body>
+    <aside id="menuoculto" class="menuoculto">
+        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
+        <a href="#">Home</a>
+        <a href="#">Perfil</a>
+        <a href="#">Grupos</a>
+        <a href="#">Configurações</a>
+        <a href="#">Ajuda</a>
+        <div class="logo_menulateral">
+            <p>Bookslog</p>
+            <i class="fa-solid fa-book"></i>
+        </div>
+    </aside>
+    <div class="containercatalogo">
+        <header>
+            <nav class="navbar">
+                <div class="nav-logo">
+                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <h1>Catálogo de Livros</h1>       
+                <div class="">
+                    <button class="btn-default">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div>
+                <div class="organiza-navegacao">
+                    <ul class="navegacao">
+                        <li><a>Romance</a></li>
+                        <li><a>Ficção Científica</a></li>
+                        <li><a>Drama</a></li>
+                        <li><a>Comédia</a></li>
+                        <li><a>Terror</a></li>
+                        <li><a>Biografias</a></li>
+                        <li><a>Quadrinhos</a></li>
+                        <li><a>Receitas</a></li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

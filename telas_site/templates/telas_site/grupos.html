@@ -8,74 +8,105 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link  type="text/css" href="{% static 'css/estilos.css' %} " rel="stylesheet">
+    <link href="{% static 'telas_site\templates\telas_site\inicial\inicial.css' %}" rel='stylesheet'>
     <link rel="stylesheet"  href="{% static 'grupos/grupos.css' %}">
-    <title>Home</title>
+    <title>Grupos</title>
 </head>
 <body>
-    <aside id="menuoculto" class="menuoculto">
-        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="#">Perfil</a>
-        <a href="#">Grupos</a>
-        <a href="#">Configurações</a>
-        <a href="#">Ajuda</a>
-        <div class="logo_menulateral">
-            <p>Bookslog</p>
-            <i class="fa-solid fa-book"></i>
-        </div>
-    </aside>
     <div class="container-grupos">
         <div>
-            <header>
+            <header style='background-color:#3d2d6a; box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); padding: 20px 20px;'>
                 <nav class="navbar">
                     <div class="nav-logo">
-                        <a href="{% url 'home' %}" class="texto">Bookslog</a>
-                        <i class="fa-solid fa-book"></i>
+                        <img src="{% static 'img/icon-book32.png' %}">
+                        <a href="{% url 'home' %}" class="texto9f">Bookslog</a>
                     </div>
-                    <h1 class="titulo-grupos">Seus Grupos</h1>
-                    <div>
+                    <ul class="lista-navbar">
+                        <li class="nav-item">
+                            <a href="{% url 'home' %}" style='color:white;'>Home</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a href="#" style='color:white;'>Sobre nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'equipe' %}" style='color:white;'>Equipe</a>
+                        </li>
+                    </ul>
+                    <div style='display:flex;'>
+                        <div class='box'>
+                            <input type='text' placeholder='Pesquise por um livro...'>
+                            <a href='#'>
+                                <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
+                            </a>
+                        </div>
                         <button class="btn-default">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <button class="btn-default">
-                            <i class="fa-solid fa-bars" onclick="abrir_nav()"></i>
+                            <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
                         </button>
                     </div>
                 </nav>
+                <div id="menu-lateral" class="menu-lateral">
+                    <button class="btn-close" onclick="fechar_nav()">&times;</button>
+                    <ul class="menu-list">
+                        <li><a href="{% url 'perfil' %}">Perfil</a></li>
+                        <li><a href="#">Configurações</a></li>
+                        <li><a href="#">Grupos</a></li>
+                        <li><a href="#">Sair</a></li>
+                    </ul>
+                </div>
             </header>
         </div>
     </div>
-    <main class="items-dos-grupos">
-        <div class="titulo-grupos">
-            <div class="">
-                <img src="{% static 'img/morroventos.jpg' %}" class="">
+    <div>
+        <main class="">
+            
+        </main>
+        <footer class='rodape'>
+            <div class='roda-1' style='display:flex; justify-content: space-around;'>
+            <div>
+                <h3 style='display:flex;'>
+                <span style='color:#F39C12; font-size: 28px;'>Bookslog</span>
+                <i class="fa-solid fa-book" style='font-size: 30px; color: #F39C12; margin-left:4px;'></i>
+                </h3>
+                <p style='color: #ECF0F1;'>
+                Bem-vindo ao nosso Universo Literário!<br> Explore resenhas e recomendações sobre<br> livros e muito mais. Cadastre-se para acesso <br>exclusivo e faça parte da nossa comunidade<br> de leitores apaixonados. Seja bem-vindo à <br>nossa jornada literária!
+                </p>
             </div>
             <div>
-                <p>Clube do livro do IFRO</p>
+                <div class='texto-roda'>
+                <h4>LEGAL</h4>
+                <p>Politica de Privacidade</p>
+                <p>Termos de Serviço</p>
+                </div>
+                <div class='texto-roda'>
+                <h4> AJUDA</h4>
+                <p>Tutoriais</p>
+                <p>Base de Conhecimentos</p>
+                <p>Denunciar Abuso</p>
+                </div>
             </div>
-        </div>
-        <div class="titulo-grupos">
-            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
-            <div><p>Clube para fãs da Clarice Lispector</p></div>
-        </div>
-        <div class="titulo-grupos">
-            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
-            <div><p>Clube para fãs de Percy Jackson</p></div>
-        </div>
-        <div class="titulo-grupos">
-            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
-            <div><p>Clube do livro do Morro dos Ventos Uivantes</p></div>
-        </div>
-        <div class="titulo-grupos">
-            <img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda">
-            <p>Clube do Livro de Orgulho e Preconceito</p>
-        </div>
-        <div class="titulo-grupos">
-            <div class="redondo"><img src="{% static 'img/morroventos.jpg' %}" class="foto-redonda"></div>
-            <div><p>Clube do livro para fãs de comêdias românticas</p></div>
-        </div>    
-    </main>
+            <div class='texto-roda'>
+                <h4 >INFORMAÇÕES</h4>
+                <p>Sobre Nós</p>
+                <p>Como Funciona</p>
+                <p>Direitos Autorais</p>
+                <p>Parcerias e Apoiadores</p>
+                <p>Condições de Servico Premium</p>
+                <p>Contate-nos</p>
+            </div>
+            </div>
+            <div class='roda-2'></div>
+            <div class='info-ro' style='display:flex; color:#F39C12;'>
+                <p>@ 2024 | Desenvolvido por Chocoifs</p>
+                <div style='font-size: 24px; color:#F39C12; margin-top:12px;'>
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-square-facebook"></i>
+                    <i class="fa-brands fa-square-x-twitter"></i>
+                </div>
+            </div>
+        </footer>
+    </div>
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

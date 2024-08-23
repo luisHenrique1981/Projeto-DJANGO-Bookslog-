@@ -1,13 +1,14 @@
 /*Estilização página HOME*/
 
-.nav-logo > i {
-    color: green;
-}
-
 header {
     width: 100%;
     padding: 28px 8%;
     
+}
+
+.texto {
+    color:  #eb8517;
+    text-decoration-color: none;
 }
 
 .container {
@@ -22,8 +23,11 @@ a {
     color: black;
 }
 
-a:hover {
-    color: green;
+.lista-navbar a:hover {
+    background-color: #F39C12;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 20px;
 }
 
 .navbar {
@@ -36,7 +40,7 @@ a:hover {
 .nav-logo {
     font-size: 24px;
     text-decoration: underline;
-    text-decoration-color: green;
+    text-decoration-color: #F39C12;
 }
 
 .lista-navbar {
@@ -45,40 +49,142 @@ a:hover {
     gap: 48px;
 }
 
-.banner-livros {
-    height: 50vh;
-    background-image: url("{% static 'img/banner_livros.jpg' %}");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+.banner {
+    display: flex;
+    justify-content: space-between;
+    background-color: #24183d;
+    
 }
 
-.titulo-home{
-    color: white;
+.banner2 {
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-evenly;
     text-align: center;
-    padding: 40px;
+    
 }
 
-.botoes {
-    padding: 40px;
-    text-align: center;
-}
-
-.botoes button {
+.banner-home > button {
     border: none;
-    background: green;
-    width: 12%;
-    height: 50px;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background-color: #E74C3C;
     color: white;
-    border-radius: 12px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-.botoes button:hover {
-    transform: scale(1.05);
+.livros-container2 {
+    display: flex;
 }
 
-.botoes i {
+.banner-home>button:hover {
+    background-color: #F39C12;
     color: white;
+    border: 0.5px solid #F39C12;
+}
+
+.barra-pesq {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.pesq-barra {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 20px; 
+    box-sizing: border-box; 
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.menu-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-dropdown > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #22438C;
+    border-radius: 5px; 
+}
+
+.menu-dropdown > ul > li {
+    position: relative;
+}
+
+.menu-dropdown > ul > li > a {
+    display: block;
+    padding: 12px 65px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #1a2a4d;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.menu-dropdown > ul > li > a:hover {
+    background-color: #112C66;
+    color: #F39C12; 
+}
+
+.menu-dropdown > ul > li ul.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #22438C;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    width: 200px; 
+    border-radius: 5px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    opacity: 0; 
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; 
+}
+
+.menu-dropdown > ul > li:hover ul.dropdown {
+    opacity: 1;
+    visibility: visible; 
+}
+
+.menu-dropdown > ul > li ul.dropdown li {
+    border-bottom: 1px solid #1a2a4d; 
+}
+
+.menu-dropdown > ul > li ul.dropdown li a {
+    padding: 12px 20px; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease; 
+}
+
+.menu-dropdown > ul > li ul.dropdown li a:hover {
+    background-color: #112C66;
+    color: #F39C12;
+}
+
+
+.btn-default43 {
+    display: flex;
+    border: none;
+    font-size:16px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .livros-container {
@@ -104,29 +210,50 @@ a:hover {
 
 .total {
     display: flex;
+    flex-direction: column; 
+    align-items: center; 
     padding: 12px;
 }
 
 .livros1 {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-right: 40px;
+    align-items: center;
+    margin-right: 0; 
 }
 
 .livros2 {
     display: flex;
-    gap:2rem;
-    overflow-x: scroll;
+    gap: 2rem;
+    overflow-x: auto; 
     width: 100%;
     max-width: 1000px;
-    margin-top: 10px;
+    justify-content: center; 
+    scroll-snap-type: x mandatory; 
     margin-bottom: 20px;
+}
+
+.livros2 .livro {
+    scroll-snap-align: center; 
 }
 
 .retangulo {
     width: 120px; 
     height: 175px;
     overflow: hidden;
+}
+
+.retangulo2 {
+    width: 90px; 
+    height: 130px;
+    overflow: hidden;
+}
+
+.retangulo2 img {
+    width: 100%; 
+    height: auto; 
+    display: block;
 }
 
 .retangulo img {
@@ -137,62 +264,190 @@ a:hover {
 
 .livro {
     text-align: center;
+    min-width: 140px; 
 }
 
-.menuoculto {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: green;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.menuoculto a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    display:block;
-    transition: 0.3s;
-}
-
-.menuoculto a:hover {
-    color: black;
-}
-
-.btn-fechar {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px; 
-    margin-left: 50px;
-}
-
-.logo_menulateral {
+.section-header {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px; 
+    padding: 0 0px;
+}
+
+.section-header p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.ver-mais {
+    align-self: center;
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.ver-mais:hover {
+    background-color: #F39C12 ;
+    color: white;
+    font-size: 1.1rem;
+    padding: 4px 6px;
+    border-radius: 12px;
+}
+
+.container-cita {
+    padding: 140px 0px;
+}
+
+.citacao {
+    display: flex;
+    background-color: #24183d;
     color:white;
-    font-size: 20px;
-    justify-content: center;
-    text-decoration: underline;
-    text-decoration-color: white;
-    gap:4px;
-    margin-top: 350px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 20px;
 }
 
-@media screen and(max-height: 450px){
-    .menuoculto{
-        padding-top: 15px;
-    }
-
-    .menuoculto a {
-        font-size: 18px;
-    }
+.redondo2 {
+    width: 180px;
+    height: 200px;
+    overflow: hidden; 
+    border-radius: 50%;
+    margin-right: 10px;
 }
+
+.noticias {
+    padding: 90px 40px;
+}
+
+.til-not {
+    background-color: #24183d;
+    color: white;
+    padding: 10px;
+    margin: 0 auto;
+    max-width: 1000px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.cont-noticia {
+    display: flex;
+    overflow-x: auto; 
+    gap: 20px; 
+    padding: 20px 0;
+    scroll-snap-type: x mandatory; 
+}
+
+.livros2f {
+    background-color: #F7F7F7;
+    color:#3d2d6a;
+    padding: 40px 40px;
+    min-width: 220px; 
+    flex: 0 0 auto; 
+    scroll-snap-align: start; 
+    border-radius: 10px;
+    transition: transform 0.2s ease; 
+}
+
+.livros2f h4 {
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.livros2f p {
+    line-height: 1.5;
+}
+
+.livros2f:hover {
+    transform: scale(1.05);
+    background-color: #F39C12;
+    color:white;
+}
+
+.livros3f {
+    background-color: #F7F7F7;
+    color:#3d2d6a;
+    padding: 40px 40px;
+    min-width: 220px; 
+    flex: 0 0 auto; 
+    scroll-snap-align: start; 
+    border-radius: 10px;
+    transition: transform 0.2s ease; 
+}
+
+.livros3f h4 {
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.livros3f p {
+    line-height: 1.5;
+    text-align:center;
+}
+
+
+.info-ro {
+    display: flex;
+    justify-content:space-around;
+}
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #24183d;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 1000; 
+    padding: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-lateral .btn-close {
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-list li {
+    margin-bottom: 20px;
+}
+
+.menu-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
+.menu-list a:hover {
+    color: #F39C12;
+}
+
+.btn-default {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-lateral.show {
+    left: 0;
+}
+
 
 /*Estilização página LOGIN*/
 
@@ -200,176 +455,214 @@ a:hover {
     display: flex;
     flex-direction: row;
     height: 100vh;
+    justify-content: space-between;
 }
 
-.cor_login {
-    background-color: green;
-    width: 50%; 
-    height: 100%;
-    display: flex;
+.azul {
+    display:flex;
+    background-color: #24183d;
+    width:50%;
     justify-content: center;
-    align-items: center;
-}
-
-.lado_verde {
-    color: white
-}
-
-.sublinhado_lado_verde > i {
-    color: white;
-    font-size: 32px;
-    
-}
-
-.sublinhado_lado_verde {
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    display: flex;
-    gap: 12px;
-    padding: 12px;
-    
+    align-items: center;
+    font-size:50px;
+    color: #F39C12;
 }
 
-.texto_lado_verde {
+.lado-branco {
+    display:flex;
     justify-content: center;
     align-items: center;
-    text-align: justify;
-    display: flex;
-    padding: 40px;
-    font-size: 20px;
-
+    min-height: 100vh;
+    margin: 0px auto;
 }
 
-.textinho_lado_verde {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: whitesmoke;
-}
-
-.texto_lado_branco {
-    color: black;
-    padding: 40px;
-    font-size: 32px;
-}
-
-.main_lado_branco {
+.login-box {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
+}
+
+.login-header {
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.login-header header {
     color: black;
-    width: 50%;
-    height: 100%;
+    font-size: 30px;
+    font-weight: 600;
 }
 
-.login {
-    padding: 15px;
-}
-
-.formula {
-    display: flex;
-}
-
-.input-box {
-    margin-bottom: 20px;
-}
-
-.input-box label {
-    font-size: 14px;
-    color: gray;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid black;
-}
-
-.input-box input {
-    border: none;
+.input-box .input-field {
+    width: 100%;
+    height: 40px;
+    font-size: 17px;
+    padding: 0 25px;
+    margin-bottom: 15px;
+    border-radius: 20px;
+    border:none;
+    box-shadow: 0px 1px 10px 1px rgba(0,0,0, 0.05);
     outline: none;
+    transition: .3s;
+}
+::placeholder {
+    font-weight: 500;
+    color:#222;
 }
 
-.input-field {
+.input-field:focus {
+    width: 105%;
+}
+
+.forgot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+section {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 3px;
-    cursor: text;
-    border-bottom: black;
-}
-
-.input-field i {
     font-size: 14px;
-    color: black;
-    margin-bottom: -2px;
+    color: #555;
 }
 
-.input-field input {
-    width: 260px;
-    font-size: 18px;
-    padding: 0px 5px;
+#check {
+    margin-right: 10px;
 }
-
-#forgot_password a {
-    text-decoration: none ;
-    font-size: 12px;
-    color: black;
-}
-
-#forgot_password a:hover {
-    color: green;
-}
-
-#sign_in a {
+a{
     text-decoration: none;
-    font-size: 12px;
-    color: black;
+}
+a:hover {
+    text-decoration: underline;
+}
+section a {
+    color:#555;
+}
+.input-submit {
+    position: relative;
 }
 
-#sign_in a:hover {
-    color: green;
-}
-
-#login_button {
+.submit-btn {
+    width: 100%;
+    height: 60px;
+    background-color: #F39C12;
     border: none;
-    background: green;
+    border-radius: 30px;
+    cursor:pointer;
+    transition: .3s;
+}
+.input-submit label {
+    position: relative;
+    top: 45%;
+    left: 50%;
     color: white;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     cursor: pointer;
-    width: 35%;
+}
+.submit-btn:hover {
+    background: #000;
+    transform: scale(1.05,1);
+}
+.sign-up-link{
+    text-align:center;
+    font-size: 15px;
+    margin-top: 20px;
+}
+.sign-up-link a{
+    color: #000;
+    font-weight: 600;
 }
 
-#login_button a {
-    text-decoration: none;
-    color: white;
-}
-
-#login_button:hover {
-    transform: scale(1.05);
-}
-
-.nav-item.active a {
-    color: green;
-    border-bottom: 2px solid;
-}
 
 
 /*Estilização página CADASTRO*/
-
 .container-cadastro {
     background-color: green;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .logo-cadastro {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
+
+.logo-cadastro h1 {
+    color: white;
+    margin-right: 10px;
+    font-size: 36px;
+}
+
+.logo-cadastro i {
+    color: white;
+    font-size: 36px;
+}
+
+.cadastro-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+}
+
+.input-box input::placeholder {
+    color: #888;
+}
+
+.input-submit {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-btn {
+    background-color: #F39C12;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e08e0b;
+}
+
 
 
 /*Estilização página SOBRE NÓS*/
 
+.principal {
+    padding: 0px 100px;
+}
 
 .principal h1 {
     margin-top: 24px;
@@ -391,6 +684,10 @@ a:hover {
     text-indent: 40px;
 }
 
+.texto9f {
+    color:white;
+}
+
 .texto_sobre {
     margin-top: 12px;
     display: flex;
@@ -401,14 +698,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: justify;
-}
-
-footer {
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
 }
 
 /*Estilização página EQUIPE*/
@@ -480,7 +769,7 @@ footer {
 
 .navegacao {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     text-decoration: none;
     list-style: none;
 }
@@ -488,4 +777,203 @@ footer {
 
 .nome-grupos > p{
     font-size: 50px;
+}
+
+.roda-6 {
+    padding: 10px ;
+    border-bottom: 1px solid #BDC3C7;
+    width: 72%;
+    margin: 0 auto;
+}
+
+.roda-7 {
+    padding: 2px ;
+    border-bottom: 1px solid #BDC3C7;
+    width: 72%;
+    margin: 0 auto;
+}
+
+.info-ro3 {
+    display:grid;
+    grid-template-columns: 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr 1fr 0.1fr;
+    grid-template-rows: 1fr;
+    width: 86%;
+    grid-auto-flow: column;
+    justify-items: end;
+    align-items: center;
+    justify-self: center;
+}
+
+
+
+/*ESTILIZAÇÃO PÁGINA PERFIL*/
+
+.total5 {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.livros5 {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto; 
+    width: 100%;
+    max-width: 700px;
+    justify-content: left; 
+    scroll-snap-type: x mandatory; 
+    margin-bottom: 20px;
+}
+
+.roda-3 {
+    padding: 20px ;
+    border-bottom: 1px solid #BDC3C7;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.tabs{
+    border: 1px solid #cccccc;
+}
+
+.tabs-upbar{
+    width:125px;
+    flex-shrink: 0;
+    background: #cccccc;
+    display: flex;
+}
+
+.tabs__button {
+    display:block;
+    padding: 10px;
+    background: #cccccc;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+.tabs__button:active {
+    background: #dddddd;
+}
+
+.tabs__button:not(:last-of-type){
+    border-bottom: 1px solid #cccccc;
+}
+
+.tabs__button--active{
+    font-weight: bold;
+    border-bottom: 2px solid #009879;
+    background: #dddddd;
+}
+
+.tabs__content{
+    padding: 15px;
+    font-size: 0.8rem;
+    display:none;
+}
+
+.tabs__content--active {
+    display: block;
+}
+
+.tabs__content > :first-child {
+     margin-top: 0px;
+}
+
+.redondo3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;  
+    height: 160px;
+}
+
+.imagem-redonda3 {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+}
+
+
+.perfil-seguidores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+
+.status-leitura {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 30px;
+}
+
+.status-leitura > div {
+    background-color: #2C3E50;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    flex: 1;
+    margin-right: 10px; 
+}
+
+.status-leitura > div:last-child {
+    margin-right: 0; 
+}
+
+/*ESTILIZAÇÃO BARRA PESQUISA*/
+
+.box {
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.box:hover input{
+    width:400px;
+}
+
+.box input {
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+
+.box a .fas{
+    color: #1daf;
+    font-size: 18px;
+}
+
+.box2 {
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.box2 input {
+    width: 300px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
 }

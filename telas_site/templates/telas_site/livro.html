@@ -9,93 +9,332 @@
     <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'livro/livro.css' %}">
+    <link type="text/css" href="{% static 'livro/livro.css' %}" rel="stylesheet">
     <title>Livro</title>
 </head>
 <body>
     
     <div class="container3">
-        <header>
+        <header style='background-color:#3d2d6a; padding: 20px 20px; box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
             <nav class="navbar">
                 <div class="nav-logo">
-                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
-                    <i class="fa-solid fa-book"></i>
+                    <img src="{% static 'img/icon-book32.png' %}">
+                    <a href="{% url 'home' %}" class="texto9f">Bookslog</a>
                 </div>
-                <div>
+                <div style='display:flex;'>
+                    <div class='box'>
+                        <input type='text' placeholder='Pesquise por um livro...'>
+                        <a href='#'>
+                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
+                        </a>
+                    </div>
                     <button class="btn-default">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                    <button class="btn-default">
-                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
                     </button>
                 </div>
             </nav>
+            <div id="menu-lateral" class="menu-lateral">
+                <button class="btn-close" onclick="fechar_nav()">&times;</button>
+                <ul class="menu-list">
+                    <li><a href="{% url 'perfil' %}">Perfil</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="{% url 'grupos' %}">Grupos</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
         </header>
     </div>
     <main>
-        <div class="mae-livro">
-            <div class='info-livro'>
-                <div class="livro-info">
+        <div class='info-livro'>
+            <div style='margin-right:50px;'>
+                <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
                     <img src="{% static 'img/evlynhugo.jpg' %}">
-                    <div>
-                        <p><em>Taylor Jenkins Reid</em></p>
+                </div>
+                <div style="display:flex; justify-content: space-between; margin-top:4px;">
+                    <div style="display:flex;">
+                        <i class="fa-regular fa-circle-check" style='margin-right:2px;'></i>
+                        <p>6000</p>
                     </div>
-                    <div class="acao-livro">
-                        <i class="fa-solid fa-star" style="color: gold;"></i>
-                        <i class="fa-solid fa-star" style="color: gold;"></i>
-                        <i class="fa-solid fa-star" style="color: gold;"></i>
-                        <i class="fa-solid fa-star" style="color: gold;"></i>
-                        <i class="fa-solid fa-star" style="color: gold;"></i>
+                    <div style="display:flex;">
+                        <i class="fa-regular fa-heart" style='margin-right:2px;'></i>
+                        <p>6000</p>
                     </div>
-                    <p>(5.550 Avaliações)</p>
-                    <div class="acao-livro">
-                        <button>Adicionar</button>
+                    <div style="display:flex;">
+                        <i class="fa-solid fa-list" style='margin-right:2px;'></i>
+                        <p>6000</p>
                     </div>
                 </div>
-                <div class="coisa-livro">
-                    <div style="background-color: green;">
-                        <h3 style="margin-left: 8px; margin-bottom: 4px; position: relative; color: white;">Os Sete Maridos de Evelyn Hugo</h3>
+                <div style='display:flex; justify-content:center; margin-top:12px;'>
+                    <div style='background-color:#F39C12; padding:10px 10px; border-radius: 8px; color:white;'>
+                        4.2
                     </div>
-                    <p class="titulo-sinopse">Sinopse</p>
-                    <div class="sinopse"> 
-                        <p>Lendária estrela de Hollywood, Evelyn Hugo sempre esteve sob os holofotes ― seja estrelando uma produção 
-                            vencedora do Oscar, protagonizando algum escândalo ou aparecendo com um novo marido… pela sétima vez. Agora, 
-                            prestes a completar oitenta anos e reclusa em seu apartamento no Upper East Side, a famigerada atriz decide 
-                            contar a própria história ― ou sua “verdadeira história” ―, mas com uma condição: que Monique Grant, jornalista 
-                            iniciante e até então desconhecida, seja a entrevistadora. Ao embarcar nessa misteriosa empreitada, a jovem repórter 
-                            começa a se dar conta de que nada é por acaso ― e que suas trajetórias podem estar profunda e irreversivelmente 
-                            conectadas.</p>
+                    <div style='margin-left:8px;'>
+                        <div>
+                            <i class="fa-solid fa-star" style='color:yellow;'></i>
+                            <i class="fa-solid fa-star" style='color:yellow;'></i>
+                            <i class="fa-solid fa-star" style='color:yellow;'></i>
+                            <i class="fa-solid fa-star" style='color:yellow;'></i>
+                            <i class="fa-solid fa-star" style='color:yellow;'></i>
+                        </div>
+                        <p>(6000 avaliações)</p>
                     </div>
-                    <div class="sobre-livro">
-                        <div class="cor-info">
-                            <p>Curtidas</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                </div>
+                <div style='text-align:center; margin-top:8px;'>
+                    <div>
+                        <i class="fa-regular fa-square-check icon-cliq" ></i>
+                        <i class="fa-solid fa-book-open-reader icon-cliq" ></i>
+                        <i class="fa-regular fa-clock icon-cliq" ></i>
+                    </div>
+                    <div style='margin-top:8px;'>
+                        <i class="fa-regular fa-heart icon-cliq" ></i>
+                        <i class="fa-solid fa-rotate-right icon-cliq" ></i>
+                        <i class="fa-solid fa-trash icon-cliq"></i>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Os Sete Maridos de Evlyn Hugo<br><span style='font-weight: normal; font-size:16px;'>Taylor Jenkins Reid</span></h3>
+                <p style='margin-top:30px;'>Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora.<br> Uma mulher que entre os anos 50 e 70 fez de tudo para poder<br> realizar os seus sonhos numa época conservadora. Este livro<br> mostra-nos um pouco como era/é a vida em Hollywood e as coisas<br> que por vezes são necessárias fazer para atingir um fim.</p>
+                <div class='linha'></div>
+                <div style='display:flex; justify-content: space-between; margin-top:20px;'>
+                    <div>
+                        <p>Data de Publicação: 26/07/2006</p>
+                        <p>Gênero: Romance</p>
+                        <p>Editora: Intrinseca</p>
+                    </div>
+                    <div>
+                        <p>Quantidade Páginas: 234</p>
+                        <p>Idioma: Português</p>
+                        <p>Classificação Indicativa: 12</p>
+                    </div>
+                </div>
+                <div style='display:flex; justify-content:space-around; margin-top:20px;'>
+                    <div class="redondo2">
+                        <img src="{% static 'img/tayloyjenkins.jpg' %}" class="imagem-redonda2">
+                    </div>
+                    <div>
+                        <h4>Taylor Jenkins Reid</h4>
+                        <p>Taylor Jenkins Reid é uma escritora americana, nascida a<br> 20 de dezembro de 1983, que se tem vindo a estabelecer,<br> nos últimos anos, como uma das mais populares autoras<br> da atualidade. Criada na cidade de Acton, em Massachuse<br>tts, Taylor cresceu com o sonho de se mudar para Los Ang<br>eles e trabalhar em Hollywood.</p>
+                    </div>
+                </div>
+                <div style='display: flex; margin-top:12px;'>
+                    <p>Disponível em:</p>
+                    <i class="fa-brands fa-amazon" style='color: yellow;'></i>
+                    <i class="fa-brands fa-google-play" style='color: green;'></i>
+                </div>
+            </div>
+        </div>
+        <div style='display:flex; justify-content:center; margin-top:30px;'>
+            <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
+                <p style='color:white;'>Lendo</p>
+                <p style='color: #F39C12; font-weight:bold;'>76</p>
+            </div>
+            <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
+                <p style='color:white;'>Querem Ler</p>
+                <p style='color: #F39C12; font-weight:bold;'>76</p>
+            </div>
+            <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
+                <p style='color:white;'>Relendo</p>
+                <p style='color: #F39C12; font-weight:bold;'>76</p>
+            </div>
+            <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
+                <p style='color:white;'>Largaram</p>
+                <p style='color: #F39C12; font-weight:bold;'>76</p>
+            </div>
+            <div style='background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
+                <p style='color:white;'>Resenhas</p>
+                <p style='color: #F39C12; font-weight:bold;'>76</p>
+            </div>
+        </div>
+        <div class="avaliacoes-container">
+            <div style='margin-bottom: -10px;'>
+                <div style='display:flex; justify-content:space-between; margin-bottom: -40px; margin-top:100px; padding: 0px 140px;'>
+                    <p>Avaliações</p>
+                    <div style='display:flex;'>
+                        <p>Ver mais</p>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+                <div class='roda-2'></div>
+            </div>
+            <div class='noticias2'>
+                <div style='padding: 0px 100px;'>
+                    <div class='cont-noticia2'>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Amei!<br><span style='font-weight: normal;'>por Pedro Oliveira<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
-                        <div class="cor-info">
-                            <p>Leram</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Uma experiencia diferente...<br><span style='font-weight: normal;'>por Amanda Silva<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
-                        <div class="cor-info">
-                            <p>Lendo</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Vale a pena dar uma lida<br><span style='font-weight: normal;'>por Joao Gomes<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
-                        <div class="cor-info">
-                            <p>Querem Ler</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Gostei, mas tenho ressalvas<br><span style='font-weight: normal;'>por Thaune Trindade<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
-                        <div class="cor-info">
-                            <p>Relendo</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Odiei!<br><span style='font-weight: normal;'>por Felix Dior<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
-                        <div class="cor-info">
-                            <p>Abandonaram</p>
-                            <p style="font-weight: bold; color: green;">0</p>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px; '>Os 7 motivos para não ler esse livro<br><span style='font-weight: normal;'>por Kate Blanchett<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
+                        </div>
+                        <div class="livros3f">
+                            <div style='display:flex;'>
+                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                <h4 style='margin-bottom:30px;'>Recomendo<br><span style='font-weight: normal;'>por Noiva da Paris Hilton<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                            </div>
+                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>  
+            <div>
+                <div style='margin-bottom: 10px;'>
+                    <div style='display:flex; justify-content:space-between; margin-bottom: -40px; margin-top:60px; padding: 0px 140px;'>
+                        <p>Você também pode gostar</p>
+                        <div style=''>
+                        </div>
+                    </div>
+                    <div class='roda-2'></div>
+                </div>
+            </div>
+            <div class="total">
+                <div class="livros2">
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/orgulho.jpg' %}">
+                        </div>
+                        <p>Orgulho e Preconceito</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/hipotese.jpg' %}">
+                        </div>
+                        <p>A Hipótese do Amor</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/amor.jpg' %}">
+                        </div>
+                        <p>Amor, Teoricamente</p>
+                    </div>
+                    <div class="livro">
+                        <a href="{% url 'livro' %}">
+                            <div class="retangulo2">
+                                <img src="{% static 'img/evlynhugo.jpg' %}">
+                            </div>
+                            <p>Os 7 Maridos de Evlyn Hugo</p>
+                        </a>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/delilah.jpg' %}">
+                        </div>
+                        <p>Delilah Green não está nem ai</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/astrid.jpg' %}">
+                        </div>
+                        <p>Astrid Parker Nunca falha</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/girls.jpg' %}">
+                        </div>
+                        <p>Girls Like Girls</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/jogadaamor.jpg' %}">
+                        </div>
+                        <p>A Jogada do Amor</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/garotoscemiterio.jpg' %}">
+                        </div>
+                        <p>Os Garotos do Cemitério</p>
+                    </div>
+                    <div class="livro">
+                        <div class="retangulo2">
+                            <img src="{% static 'img/garotamar.jpg' %}">
+                        </div>
+                        <p>A Garota do Mar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+    <footer class='rodape'>
+        <div class='roda-1'>
+          <div>
+            <h3 style='display:flex;'>
+              <span style='color:#F39C12; font-size: 28px;'>Bookslog</span>
+              <i class="fa-solid fa-book" style='font-size: 30px; color: #F39C12; margin-left:4px;'></i>
+            </h3>
+            <p style='color: #ECF0F1;'>
+              Bem-vindo ao nosso Universo Literário!<br> Explore resenhas e recomendações sobre<br> livros e muito mais. Cadastre-se para acesso <br>exclusivo e faça parte da nossa comunidade<br> de leitores apaixonados. Seja bem-vindo à <br>nossa jornada literária!
+            </p>
+          </div>
+          <div>
+            <div class='texto-roda'>
+              <h4>LEGAL</h4>
+              <p>Politica de Privacidade</p>
+              <p>Termos de Serviço</p>
+            </div>
+            <div class='texto-roda'>
+              <h4> AJUDA</h4>
+              <p>Tutoriais</p>
+              <p>Base de Conhecimentos</p>
+              <p>Denunciar Abuso</p>
+            </div>
+          </div>
+          <div class='texto-roda'>
+            <h4 >INFORMAÇÕES</h4>
+            <p>Sobre Nós</p>
+            <p>Como Funciona</p>
+            <p>Direitos Autorais</p>
+            <p>Parcerias e Apoiadores</p>
+            <p>Condições de Servico Premium</p>
+            <p>Contate-nos</p>
+          </div>
+        </div>
+        <div class='roda-2'></div>
+        <div style='display:flex; justify-content:space-around; color:#F39C12;'>
+          <p>@ 2024 | Desenvolvido por Chocoifs</p>
+          <div style='font-size: 24px; color:#F39C12; margin-top:12px;'>
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-square-x-twitter"></i>
+          </div>
+        </div>
+    </footer>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

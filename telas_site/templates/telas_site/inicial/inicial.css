@@ -1,0 +1,308 @@
+.navegacao-barra {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.texto {
+    color:#F39C12;
+    font-size: 28px;
+}
+
+.navbar64 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    display: flex;
+}
+
+.container-cabeca {
+   
+    background-color: #24183d;
+}
+
+.botoes {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.btn-default2 {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-right: 10px;
+}
+
+.btn-default2:hover {
+    background-color: #eb8517 ;
+    color: white;
+    border: #F39C12;
+}
+
+.btn-default3 {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background-color: #E74C3C;
+    color: white;
+}
+
+.btn-default3:hover {
+    background-color: #eb8517 ;
+    color: white;
+    border:#F39C12;
+}
+
+.btn-default4 {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background-color: #E74C3C;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn-default4:hover {
+    background-color: #eb8517 ;
+    color: white;
+    border: #F39C12;
+}
+
+.apresenta {
+    background-color: #24183d;
+}
+
+.titulo-inicial2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 40px;
+    
+}
+
+.container-apre {
+    background-color: #24183d;
+    padding: 180px 10px;
+}
+
+.resenhas {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 190px 10px;
+    background-color:#F7F7F7;
+    
+}
+
+.titu-rese {
+    background-color:#24183d;
+    color:white;
+    border-radius: 12px;
+    width: 360px;
+    height: 40px;
+}
+
+.cor {
+    background-color: #24183d;
+    padding: 160px 10px;
+    text-align: center;
+}
+
+.func {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;  
+}
+
+.info3 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 10px 14px;
+}
+
+.info3 > i {
+    color:#1ABC9C;
+}
+
+.titulo-destaque {
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px 20px; 
+    display: inline-block; 
+    margin: 0 auto; 
+}
+
+.perguntas {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    text-align: justify;
+}
+
+.final {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 180px 10px;
+}
+
+.duvidas {
+    width: 60%; 
+    margin: 0 auto; 
+}
+
+.caixa-resp {
+    background-color: #F6F6F6;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.caixa-resp:hover {
+    background-color: #E6E6E6; 
+}
+
+.caixa-resp i {
+    margin-left: 10px;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.resposta {
+    background-color: #F9F9F9;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    margin-bottom: 10px;
+}
+
+.titulo-inicial {
+    font-size: 40px;
+}
+
+.texto-inicial {
+    font-size: 20px;
+}
+
+.info-ini {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.texto-apre {
+    font-size: 32px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    width: 600px;
+    height: 40px;
+
+}
+
+
+.livros-expo {
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.botao7 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text {
+    font-size: 20px;
+    text-align: center;
+    color: #F7F7F7;
+}
+
+.retangulo {
+    width: 120px; 
+    height: 175px;
+    overflow: hidden;
+}
+
+.retangulo img {
+    width: 100%; 
+    height: auto; 
+    display: block;
+}
+
+.livro {
+    text-align: center;
+}
+
+.rodape {
+    background-color: #24183d;
+    padding: 100px 10px;
+}
+
+.roda-1 {
+    display:flex;
+    justify-content: space-around;
+}
+
+.texto-roda > p {
+    color: #ECF0F1;
+}
+
+.texto-roda > h4 {
+    color:#eb8517 ;
+}
+
+.roda-2 {
+    padding: 20px ;
+    border-bottom: 1px solid #BDC3C7;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.box {
+    height: 30px;
+    display: flex;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.box:hover input{
+    width:400px;
+}
+
+.box input {
+    width: 0;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.8s;
+    background: transparent;
+}
+
+.box a .fas{
+    color: #1daf;
+    font-size: 18px;
+}

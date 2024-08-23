@@ -26,6 +26,9 @@ from telas_site.views import login
 from telas_site.views import cadastro 
 from telas_site.views import livro
 from telas_site.views import inicial
+from telas_site.views import perfil
+from telas_site.views import caso
+from telas_site.views import modelo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,5 +40,8 @@ urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('grupos/',views.grupos, name='grupos'),
     path('livro/', views.livro, name='livro'),
-    path("inicial/",views.inicial, name='inicial')
+    path("inicial/",views.inicial, name='inicial'),
+    path("perfil/", views.perfil, name='perfil'),
+    path('caso/', views.caso, name='caso'),
+    path('modelo/', views.modelo, name='modelo'),
 ]

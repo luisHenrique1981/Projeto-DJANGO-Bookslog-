@@ -8,59 +8,289 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link href="{% static 'telas_site\templates\telas_site\inicial\inicial.css' %}" rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
     <title>Catálogo</title>
 </head>
 <body>
-    <aside id="menuoculto" class="menuoculto">
-        <a href="javascript:void(0)" class="btn-fechar" onclick="fechar_nav()"><i class="fa-solid fa-x"></i></a>
-        <a href="#">Home</a>
-        <a href="#">Perfil</a>
-        <a href="#">Grupos</a>
-        <a href="#">Configurações</a>
-        <a href="#">Ajuda</a>
-        <div class="logo_menulateral">
-            <p>Bookslog</p>
-            <i class="fa-solid fa-book"></i>
-        </div>
-    </aside>
     <div class="containercatalogo">
-        <header>
+        <header style='background-color:#3d2d6a; box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); padding: 20px 20px; margin-bottom:24px;'>
             <nav class="navbar">
                 <div class="nav-logo">
-                    <a href="{% url 'home' %}" class="texto">Bookslog</a>
-                    <i class="fa-solid fa-book"></i>
+                    <img src="{% static 'img/icon-book32.png' %}">
+                    <a href="{% url 'home' %}" class="texto9f">Bookslog</a>
                 </div>
-                <h1>Catálogo de Livros</h1>       
-                <div class="">
+                <ul class="lista-navbar">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" style='color:white;'>Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" style='color:white;'>Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'equipe' %}" style='color:white;'>Equipe</a>
+                    </li>
+                </ul>
+                <div style='display:flex;'>
+                    <div class='box'>
+                        <input type='text' placeholder='Pesquise por um livro...'>
+                        <a href='#'>
+                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
+                        </a>
+                    </div>
                     <button class="btn-default">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                    <button class="btn-default">
-                        <i class="fa-solid fa-bars"  onclick="abrir_nav()"></i>
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
                     </button>
                 </div>
             </nav>
+            <div id="menu-lateral" class="menu-lateral">
+                <button class="btn-close" onclick="fechar_nav()">&times;</button>
+                <ul class="menu-list">
+                    <li><a href="#">Perfil</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="{% url 'grupos' %}">Grupos</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
         </header>
         <main>
-            <div>
-                <div class="organiza-navegacao">
-                    <ul class="navegacao">
-                        <li><a>Romance</a></li>
-                        <li><a>Ficção Científica</a></li>
-                        <li><a>Drama</a></li>
-                        <li><a>Comédia</a></li>
-                        <li><a>Terror</a></li>
-                        <li><a>Biografias</a></li>
-                        <li><a>Quadrinhos</a></li>
-                        <li><a>Receitas</a></li>
-                    </ul>
+            <div style='display:flex; flex-direction:column;'>
+                <div class='info-ro3' style='justify-content:space-evenly; color:black;'>
+                        <p>Categorias</p>
+                        <i class="fa-solid fa-angle-down"></i>
+                    
+                        <p>Mais Bem Avaliados</p>
+                        <i class="fa-solid fa-angle-down"></i>
+                  
+                        <p>Ano</p>
+                        <i class="fa-solid fa-angle-down"></i>
+                    
+                        <p style='margin-right:2px;'>Filtros</p>
+                        <i class="fa-solid fa-angle-down"></i>
                 </div>
-                <div>
-
+                <div class='roda-7'></div>
+                <div style='display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;'>
+                    <div style='display:flex; margin-top:16px;'>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/percy.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/harry.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/narnia.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/bussolaouro.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/torrenegra.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/heroisolimpo.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/hobbit.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/duna.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/sombraossos.jpg' %}">
+                        </div>
+                    </div>
+                    <div style='display:flex; margin-top:6px;'>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/percy.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/harry.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/narnia.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/bussolaouro.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/torrenegra.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/heroisolimpo.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/hobbit.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/duna.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/sombraossos.jpg' %}">
+                        </div>
+                    </div>
+                    <div style='display:flex; margin-top:6px;'>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/percy.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/harry.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/narnia.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/bussolaouro.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/torrenegra.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/heroisolimpo.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/hobbit.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/duna.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/sombraossos.jpg' %}">
+                        </div>
+                    </div>
+                    <div style='display:flex; margin-top:16px;'>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/percy.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/harry.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/narnia.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/bussolaouro.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/torrenegra.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/heroisolimpo.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/hobbit.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/duna.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/sombraossos.jpg' %}">
+                        </div>
+                    </div>
+                    <div style='display:flex; margin-top:16px;'>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/percy.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); margin-right:8px;'>
+                            <img src="{% static 'img/guerra dos tronos.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/harry.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/narnia.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/bussolaouro.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/torrenegra.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/heroisolimpo.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/hobbit.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/duna.jpg' %}">
+                        </div>
+                        <div class="retangulo2" style='margin-right:8px;'>
+                            <img src="{% static 'img/sombraossos.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class='roda-6'></div>
+                <div class='info-ro' style='display:flex; justify-content:space-around; color:black;'>
+                    <p></p>
+                    <p></p>
+                    <div style='display:flex;'>
+                        <p style='margin-top:4px; margin-right:2px;'>Próxima página</p>
+                        <i class="fa-solid fa-angle-right" style='display:flex; text-align:center; justify-content:center; align-items:center;'></i>
+                    </div>
+                </div>
+                <div style='font-size: 14px; color:black; margin-top:12px;'>
+                    
                 </div>
             </div>
+        </div>
         </main>
+        <footer class='rodape' style='margin-top:200px;'>
+            <div class='roda-1' style='display:flex; justify-content: space-around;'>
+              <div>
+                <h3 style='display:flex;'>
+                  <span style='color:#F39C12; font-size: 28px;'>Bookslog</span>
+                  <i class="fa-solid fa-book" style='font-size: 30px; color: #F39C12; margin-left:4px;'></i>
+                </h3>
+                <p style='color: #ECF0F1;'>
+                  Bem-vindo ao nosso Universo Literário!<br> Explore resenhas e recomendações sobre<br> livros e muito mais. Cadastre-se para acesso <br>exclusivo e faça parte da nossa comunidade<br> de leitores apaixonados. Seja bem-vindo à <br>nossa jornada literária!
+                </p>
+              </div>
+              <div>
+                <div class='texto-roda'>
+                  <h4>LEGAL</h4>
+                  <p>Politica de Privacidade</p>
+                  <p>Termos de Serviço</p>
+                </div>
+                <div class='texto-roda'>
+                  <h4> AJUDA</h4>
+                  <p>Tutoriais</p>
+                  <p>Base de Conhecimentos</p>
+                  <p>Denunciar Abuso</p>
+                </div>
+              </div>
+              <div class='texto-roda'>
+                <h4 >INFORMAÇÕES</h4>
+                <p>Sobre Nós</p>
+                <p>Como Funciona</p>
+                <p>Direitos Autorais</p>
+                <p>Parcerias e Apoiadores</p>
+                <p>Condições de Servico Premium</p>
+                <p>Contate-nos</p>
+              </div>
+            </div>
+            <div class='roda-2'></div>
+            <div class='info-ro' style='display:flex; color:#F39C12;'>
+              <p>@ 2024 | Desenvolvido por Chocoifs</p>
+              <div style='font-size: 24px; color:#F39C12; margin-top:12px;'>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-square-facebook"></i>
+                <i class="fa-brands fa-square-x-twitter"></i>
+              </div>
+            </div>
+          </footer>
     </div>
     <script src="{% static 'js/script.js' %}"></script>
 </body>

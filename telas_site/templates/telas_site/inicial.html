@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} 
 
 <!DOCTYPE html>
 
@@ -7,25 +7,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
-    <link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'inicial/inicial.css' %}" type="text/css">
+    <link href="{% static 'telas_site\templates\telas_site\inicial\inicial.css' %}" rel='stylesheet'> 
     <title>Tela Inicial</title>
   </head>
   <body>
-    <div>
-      <header>
-        <nav class="navbar" style="display: flex;">
+    <div class='container-cabeca'>
+      <header style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); padding: 20px 20px;'>
+        <nav class="navbar64">
           <div class="nav-logo">
-              <div><h2>Bookslog</h2><div>
-              <i class="fa-solid fa-book"></i>
+            <img src="{% static 'img/icon-book32.png' %}">
+            <a href="{% url 'home' %}" class="texto">Bookslog</a>
           </div>
-          <div>
-              <button>Entrar</button>
-              <button>Cadastrar-se</button>
+          <div class='botoes'>
+              <a href="{% url 'login' %}"><button class='btn-default2' >Entrar</button></a>
+              <a href="{% url 'cadastro' %}"><button class='btn-default3'>Cadastrar-se</button></a>
           </div>
         </nav>
       </header>
     </div>
+    <main>
+      <div class='apresenta'>
+        <div class="imagem-main">
+          <img src="{% static 'img/BOOKSLOG.png' %}" alt="Descrição da imagem" style="max-width: 100%; height: auto; ">
+        </div>
+      </div>
+      <div class='container-apre'>
+        <div class='titulo-inicial2'>
+          <h1 class="texto-apre" >Explore nossa <span style='color:#eb8517 ;'>vasta coleção de livros!</span></h1>
+        </div>
+        <div class='livros-expo'>
+          <div class="livro">
+            <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
+                <img src="{% static 'img/orgulho.jpg' %}">
+            </div>
+          </div>
+          <div class="livro">
+            <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
+                <img src="{% static 'img/harry.jpg' %}">
+            </div>
+          </div>
+          <div class="livro">
+            <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
+                <img src="{% static 'img/percy.jpg' %}">
+            </div>
+          </div>
+          <div class="livro">
+            <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
+                <img src="{% static 'img/guerra dos tronos.jpg' %}">
+            </div>
+         </div>
+         <div class="livro">
+          <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
+              <img src="{% static 'img/bussolaouro.jpg' %}">
+          </div>
+          </div>
+        </div>
+        <div class='botao7'>
+          <p class='text'>Com o nosso site,  você encontra uma vasta seleção de livros para todos os gostos. De romances a ficção científica,<br> de biografias a mistérios, nosso site oferece opções para todos os tipos de leitores</p>
+          <button class='btn-default4'>Conheça ja</button>
+        </div>
+      </div>
+      <div class='resenhas'>
+        <div>
+          <div >
+              <img src="{% static 'img/review.png' %}">
+          </div>
+        </div>
+        <div>
+          <h1 class='titu-rese'>Escreva <span style='color:#eb8517 ;'>Resenhas</span></h1>
+          <p style="text-align: justify; font-size: 20px; color:#34495E;">Compartilhe suas experiências literárias<br> através de reviews e avaliações sinceras. <br>Além de compartilhar suas próprias <br>experiências, você também pode explorar<br> as opiniões de outros membros da nossa <br>comunidade.  Você também pode interagir<br> com comentários de outros usuários, <br>curtindo ou comentando em suas avaliações!</p>
+        </div>
+      </div>
+      <div class='cor'>
+        <h1 class="titulo-destaque">Explore <span style='color:#1ABC9C'>outras funcionalidades</span> do nosso sistema!</h1>
+        <div class='func'>
+          <div>
+            <div class='info3'>
+              <i class="fa-solid fa-people-group" style='font-size:30px'></i>
+              <h3>Crie <span style='color:#1ABC9C'>Grupos</span></h3>
+              <p>Crie grupos com outros usuários<br> para debates de livros ou para<br> a interação com outras pessoas</p>
+            </div>
+            <div class='info3'>
+              <i class="fa-solid fa-list" style='font-size:30px'></i>
+              <h3>Crie <span style='color:#1ABC9C'>Listas</span></h3>
+              <p>Crie listas para organização <br>pessoal ou realização de metas</p>
+            </div>
+          </div>
+          <div>
+            <div class='info3'>
+              <i class="fa-solid fa-display" style='font-size:30px'></i>
+              <h3>Utilize em <span style='color:#1ABC9C;'>diferentes<br> dispositivos</span></h3>
+              <p>Use nosso aplicativo tanto no celular<br> quanto no computador em qualquer lugar</p>
+            </div>
+            <div class='info3'>
+              <i class="fa-solid fa-user" style='font-size:30px'></i>
+              <h3><span style='color:#1ABC9C'>Personalize</span> seu perfil</h3>
+              <p>Crie um perfil e personalize<br> ele de diferentes formas</p>
+            </div>
+          </div>
+        </div>
+      </div>    
+      <div class='final'>
+        <h1>Perguntas Frequentes</h1>
+        <p>Tire dúvidas em relação ao nosso site</p>
+        <div class="perguntas">
+            <div class='duvidas'>
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>Como faço para criar uma conta no Bookslog?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Para criar uma conta, vá à página de cadastro, preencha as informações solicitadas e clique em 'Cadastrar'.</p>
+                </div>
+                
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>Como posso fazer a review de um livro?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Para fazer uma review, acesse o livro desejado e clique em 'Escrever Review'. Preencha sua opinião e envie.</p>
+                </div>
+                
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>Como posso participar de grupos de leitura e discussão?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Você pode participar de grupos acessando a aba 'Grupos', escolhendo um grupo e solicitando a participação.</p>
+                </div>
+                
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>O que são as listas de leitura?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Listas de leitura permitem que você organize e acompanhe os livros que deseja ler ou já leu.</p>
+                </div>
+                
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>Posso sugerir melhorias ou funcionalidades novas pro site?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Sim, você pode enviar sugestões na seção 'Contato' ou diretamente nos fóruns de discussão.</p>
+                </div>
+                
+                <div class="caixa-resp" style='margin-bottom:16px;'>
+                    <h2>O que devo fazer se encontrar uma falha ou problema no site?</h2>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="resposta">
+                    <p>Se encontrar uma falha, reporte na seção 'Suporte' para que possamos corrigir o mais rápido possível.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>    
+    </main>
+    <footer class='rodape'>
+      <div class='roda-1'>
+        <div>
+          <h3 style='display:flex;'>
+            <span style='color:#eb8517 ; font-size: 28px;'>Bookslog</span>
+            <i class="fa-solid fa-book" style='font-size: 30px; color: #eb8517 ; margin-left:4px;'></i>
+          </h3>
+          <p style='color: #ECF0F1;'>
+            Bem-vindo ao nosso Universo Literário!<br> Explore resenhas e recomendações sobre<br> livros e muito mais. Cadastre-se para acesso <br>exclusivo e faça parte da nossa comunidade<br> de leitores apaixonados. Seja bem-vindo à <br>nossa jornada literária!
+          </p>
+        </div>
+        <div>
+          <div class='texto-roda'>
+            <h4>LEGAL</h4>
+            <p>Politica de Privacidade</p>
+            <p>Termos de Serviço</p>
+          </div>
+          <div class='texto-roda'>
+            <h4> AJUDA</h4>
+            <p>Tutoriais</p>
+            <p>Base de Conhecimentos</p>
+            <p>Denunciar Abuso</p>
+          </div>
+        </div>
+        <div class='texto-roda'>
+          <h4 >INFORMAÇÕES</h4>
+          <p>Sobre Nós</p>
+          <p>Como Funciona</p>
+          <p>Direitos Autorais</p>
+          <p>Parcerias e Apoiadores</p>
+          <p>Condições de Servico Premium</p>
+          <p>Contate-nos</p>
+        </div>
+      </div>
+      <div class='roda-2'></div>
+      <div style='display:flex; justify-content:space-around; color:#eb8517 ;'>
+        <p>@ 2024 | Desenvolvido por Chocoifs</p>
+        <div style='font-size: 24px; color:#eb8517 ; margin-top:12px;'>
+          <i class="fa-brands fa-youtube"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-square-facebook"></i>
+          <i class="fa-brands fa-square-x-twitter"></i>
+        </div>
+      </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>

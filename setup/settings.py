@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-#!8c++g7@as*ftxb&9u#51k6$m6f#_+$-(qj7k@%ksot3e^_vt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
 
 
 # Application definition
@@ -76,12 +77,24 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bookslog',
+        'USER': 'luishenrique',
+        'PASSWORD': 'L04081012#',
+        'HOST': 'localhost', 
+        'PORT': '3306',       
     }
 }
+
 
 BASE_DIR = 'C:\\Users\\luish\\OneDrive\\Área de Trabalho\\TWTODOS'
 

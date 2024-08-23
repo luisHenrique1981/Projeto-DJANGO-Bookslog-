@@ -8,68 +8,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link type="text/css" href="{% static 'css/estilos.css' %}" rel="stylesheet">
     <title>Login</title>
 </head>
 <body>
     <main class="conteiner2">
-        <div class="cor_login">
-            <div class="lado_verde">
-                <u class="sublinhado_lado_verde">
-                    <h1>
-                        <span class="texto">Bookslog</span>
-                    </h1>
-                    <i class="fa-solid fa-book"></i>
-                </u>
-                <div class="texto_lado_verde">
-                    <p>Bem-vindo ao nosso Universo Literário! Aqui, mergulhamos nas profundezas das palavras, explorando mundos imaginários, desvendando mistérios, e nos encantando com histórias que transcendem o tempo. É um lugar onde a magia da literatura se entrelaça com nossas almas, inspirando-nos a viajar por páginas e páginas de emoção e reflexão.
-
-                        Explore resenhas escritas com paixão e dedicação, que revelam os segredos mais bem guardados dos livros que tanto amamos. Descubra recomendações cuidadosamente selecionadas, que guiarão você por entre os labirintos da biblioteca infinita, em busca da próxima grande aventura literária.
-                        
-                        Cadastre-se agora mesmo para acesso exclusivo a conteúdos especiais, eventos literários exclusivos e comunidade vibrante de leitores apaixonados. Junte-se a nós nesta jornada literária, onde cada página virada é uma nova descoberta, e cada livro é uma porta para um mundo de possibilidades.
-                    </p>
+        <div class='lado-branco'>
+            <div class='login-box'>
+                <div class='login-header'>
+                    <header>Login</header>
                 </div>
-                <div class="textinho_lado_verde">
-                    <p>@2024 | Desenvolvido por Chocoifs</p>
+                <div class='input-box'>
+                    <input type='text' class='input-field' placeholder='Email' autocomplete='off' required>
+                </div>
+                <div class='input-box'>
+                    <input type='password' class='input-field' placeholder='Password' autocomplete='off' required>
+                </div>
+                <div class='forgot'>
+                    <section>
+                        <input type='checkbox' id='check'>
+                        <label for='check'>Me Lembrar</label>
+                    </section>
+                    <section>
+                        <a href='#'>Esqueci minha senha</a>
+                    </section>
+                </div>
+                <div class='input-submit'>
+                    <button class='submit-btn' id='submit' style='color:white;'>Entrar</button>
+                </div>
+                <div class='sign-up-link'>
+                    <p>Não possui uma conta?<a href='#'>Cadastrar-se</a></p>
                 </div>
             </div>
         </div>
-        <div class="main_lado_branco">
-            <div class="texto_lado_branco">
-                <span>Bookslog</span>
-                <i class="fa-solid fa-book"></i>
-            </div>
-            <div class="login">
-                <form class="login_form">
-                    <div class="inputs">
-                        <div class="input-box">
-                            <label for="email" class="formula">
-                                <div class="input-field"><i class="fa-solid fa-envelope"></i></div>
-                                <input type="email" placeholder="Email" id="email" name="email">
-                            </label>
-                        </div>
-                        <div class="input-box">
-                            <label for="password" class="formula">
-                                <div class="input-field"><i class="fa-solid fa-lock"></i></div>
-                                <input type="password" placeholder="Senha" id="password" name="password">
-                            </label>
-                            <div id="forgot_password">
-                                <a href="#">
-                                    Esqueceu sua senha?
-                                </a>
-                            </div>
-                            <div id="sign_in">
-                                <a href="{% url 'cadastro' %}">
-                                    Cadastrar
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <button type="submit" id="login_button">
-                <a href="{% url 'home' %}">Login</a>
-            </button>
+        <div class='azul'>
+            <img src="{% static 'img/36-book.png' %}">
+            <p>Bookslog</p>
         </div>
     </main>
     <script src="{% static 'js/script.js' %}"></script>

@@ -286,12 +286,12 @@
                 <div class='container-cita'>
                     <div  class='citacao '>
                         <div  style='padding:30px;'>
-                            <h4 style='font-size:24px;'>Uma vez <span style='color:#F39C12'>Virginia Woolf</span> disse:</h4>
-                            <p style='margin-top:20px;'>“Se você não contar a verdade sobre si mesmo,<br> você não pode contar a verdade sobre as outras pessoas”</p>
+                            <h4 style='font-size:24px;'>Uma vez <span style='color:#F39C12'>{{ citacao.titulo }}</span> disse:</h4>
+                            <p style='margin-top:20px;'>"{{ citacao.frase }}"</p>
                         </div>
                         <div>
                             <div class="redondo2">
-                                <img src="{% static 'img/woolf.jpg' %}">
+                                <img src="{{ citacao.imagem.url }}" alt="{{ citacao.titulo }}">
                             </div>
                         </div>
                     </div>

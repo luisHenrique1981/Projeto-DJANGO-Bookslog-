@@ -25,19 +25,24 @@
                     <div class='input-group'>
                         <div class='input-box'>
                             <label for='firstname'>Nome</label>
-                            <input id='firstname' type='text' name='username' placeholder='Digite seu nome' required>
+                            <input id='firstname' type='text' name='nome' placeholder='Digite seu nome' required>
+                            {% if messages %}
+                                <div class="messages">
+                                    {% for message in messages %}
+                                        <div class="alert {{ message.tags }}" style='color:red'>
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class='input-box'>
-                            <label for='email'>Email</label>
+                            <label for='email'>email</label>
                             <input id='email' type='email' name='email' placeholder='Digite seu email' required>
                         </div>
                         <div class='input-box'>
                             <label for='password'>Senha</label>
-                            <input id='password' type='password' name='password' placeholder='Digite sua senha' required>
-                        </div>
-                        <div class='input-box'>
-                            <label for='password'>Confirmação de Senha</label>
-                            <input id='password' type='password' name='confirmpassword' placeholder='Digite sua senha novamente' required>
+                            <input id='password' type='password' name='senha' placeholder='Digite sua senha' required>
                         </div>
                     </div>
                     <div class='input-submit'>

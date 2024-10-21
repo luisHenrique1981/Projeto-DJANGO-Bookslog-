@@ -48,7 +48,7 @@
         <div class='info-livro'>
             <div style='margin-right:50px;'>
                 <div class="retangulo" style='box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3);'>
-                    <img src="{% static 'img/evlynhugo.jpg' %}">
+                    <img src="{{ livro.capa.url }}">
                 </div>
                 <div style="display:flex; justify-content: space-between; margin-top:4px;">
                     <div style="display:flex;">
@@ -93,28 +93,28 @@
                 </div>
             </div>
             <div>
-                <h3>Os Sete Maridos de Evlyn Hugo<br><span style='font-weight: normal; font-size:16px;'>Taylor Jenkins Reid</span></h3>
-                <p style='margin-top:30px;'>Evelyn Hugo é uma mulher de armas, excêntrica e arrebatadora.<br> Uma mulher que entre os anos 50 e 70 fez de tudo para poder<br> realizar os seus sonhos numa época conservadora. Este livro<br> mostra-nos um pouco como era/é a vida em Hollywood e as coisas<br> que por vezes são necessárias fazer para atingir um fim.</p>
+                <h3> {{livro.titulo}} <br><span style='font-weight: normal; font-size:16px;'> {{livro.autor}} </span></h3>
+                <p class="sinopse" style='margin-top:30px;'> {{livro.sinopse}} </p>
                 <div class='linha'></div>
                 <div style='display:flex; justify-content: space-between; margin-top:20px;'>
                     <div>
-                        <p>Data de Publicação: 26/07/2006</p>
-                        <p>Gênero: Romance</p>
-                        <p>Editora: Intrinseca</p>
+                        <p> {{livro.data_publicacao}} </p>
+                        <p> {{livro.genero}} </p>
+                        <p> {{livro.editora}} </p>
                     </div>
                     <div>
-                        <p>Quantidade Páginas: 234</p>
-                        <p>Idioma: Português</p>
-                        <p>Classificação Indicativa: 12</p>
+                        <p> {{livro.quantidade_paginas}} </p>
+                        <p> {{livro.idioma}} </p>
+                        <p> {{livro.classificacao_indicativa}} </p>
                     </div>
                 </div>
                 <div style='display:flex; justify-content:space-around; margin-top:20px;'>
                     <div class="redondo2">
-                        <img src="{% static 'img/tayloyjenkins.jpg' %}" class="imagem-redonda2">
+                        <img src="{{ livro.foto_autor.url }}"class="imagem-redonda2">
                     </div>
                     <div>
-                        <h4>Taylor Jenkins Reid</h4>
-                        <p>Taylor Jenkins Reid é uma escritora americana, nascida a<br> 20 de dezembro de 1983, que se tem vindo a estabelecer,<br> nos últimos anos, como uma das mais populares autoras<br> da atualidade. Criada na cidade de Acton, em Massachuse<br>tts, Taylor cresceu com o sonho de se mudar para Los Ang<br>eles e trabalhar em Hollywood.</p>
+                        <h4><strong>{{livro.autor}}</strong></h4>
+                        <p class="sinopse">{{livro.bio_autor}}</p>
                     </div>
                 </div>
                 <div style='display: flex; margin-top:12px;'>
@@ -163,9 +163,9 @@
                         <div class="livros3f">
                             <div style='display:flex;'>
                                 <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Amei!<br><span style='font-weight: normal;'>por Pedro Oliveira<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
+                                <h4 style='margin-bottom:30px;'>{{resenha.titulo_resenha}}<br><span style='font-weight: normal;'>{{resenha.id_usuario}}<br>{{resenha.nota_resenha}}</span></h4>
                             </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
+                            <p>{{resenha.texto_resenha}}</p>
                         </div>
                         <div class="livros3f">
                             <div style='display:flex;'>

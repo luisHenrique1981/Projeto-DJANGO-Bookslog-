@@ -19,26 +19,8 @@
                     <header>Login</header>
                 </div>
                 <form action="{% url 'login' %}" method='POST'>{% csrf_token%}
-                    <div class='input-box'>
-                        <label for='email'>email</label>
-                        <input id='email' type='email' name='email' placeholder='Digite seu email' required>
-                        {% if messages %}
-                            <div class="messages">
-                                {% for message in messages %}
-                                    <div class="alert {{ message.tags }}" style='color:red'>
-                                        {{ message }}
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class='input-box'>
-                        <label for='password'>Senha</label>
-                        <input id='password' type='password' name='senha' placeholder='Digite sua senha' required>
-                    </div>
-                    <div class='input-submit'>
-                        <button class='submit-btn' id='submit' style='color:white;'>Entrar</button>
-                    </div>
+                    {{loginform.as_p}}
+                    <input type='submit' value="Login">
                     <div class='sign-up-link'>
                         <p>Não possui uma conta?<a href='#'>Cadastrar-se</a></p>
                     </div>

@@ -150,3 +150,9 @@
     color: #1daf;
     font-size: 18px;
 }
+
+.sinopse {
+    max-width: 600px; 
+    margin: 0; 
+    text-align: justify; 
+}

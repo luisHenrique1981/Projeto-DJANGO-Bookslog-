@@ -18,35 +18,10 @@
                 <span style="font-size:50px;">Bookslog</span>
             </div>
             <div class='form'>
-                <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+                <form action="{% url 'cadastro' %}" method="POST" autocomplete="off" enctype="multipart/form-data">{% csrf_token %}
+                    {{registerform.as_p}}
                     <div class='form-header'>
-                        
-                    </div>
-                    <div class='input-group'>
-                        <div class='input-box'>
-                            <label for='firstname'>Nome</label>
-                            <input id='firstname' type='text' name='nome' placeholder='Digite seu nome' required>
-                            {% if messages %}
-                                <div class="messages">
-                                    {% for message in messages %}
-                                        <div class="alert {{ message.tags }}" style='color:red'>
-                                            {{ message }}
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-                        <div class='input-box'>
-                            <label for='email'>email</label>
-                            <input id='email' type='email' name='email' placeholder='Digite seu email' required>
-                        </div>
-                        <div class='input-box'>
-                            <label for='password'>Senha</label>
-                            <input id='password' type='password' name='senha' placeholder='Digite sua senha' required>
-                        </div>
-                    </div>
-                    <div class='input-submit'>
-                        <button class='submit-btn' id='submit' style='color:white;'>Cadastrar-se</button>
+                      <input class='botao ' type='submit' value="Cadastrar">
                     </div>
                     <div class='sign-up-link2'>
                         <p>Já uma conta?<a href='#' style='color:#E74C3C'>Entrar</a></p>

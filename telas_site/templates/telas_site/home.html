@@ -45,7 +45,7 @@
                         <li><a href="{% url 'perfil' %}">Perfil</a></li>
                         <li><a href="#">Configurações</a></li>
                         <li><a href="{% url 'grupos' %}">Grupos</a></li>
-                        <li><a href="#">Sair</a></li>
+                        <li><a href="{% url 'user-logout' %}">Sair</a></li>
                     </ul>
                 </div>
             </header>
@@ -217,68 +217,16 @@
                                 </div>
                             </div>
                             <div class="livros2">
+                                {% for livro in livros %}
                                 <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/orgulho.jpg' %}">
-                                    </div>
-                                    <p>Orgulho e Preconceito</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/hipotese.jpg' %}">
-                                    </div>
-                                    <p>A Hipótese do Amor</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/amor.jpg' %}">
-                                    </div>
-                                    <p>Amor, Teoricamente</p>
-                                </div>
-                                <div class="livro">
-                                    <a href="{% url 'livro' %}">
+                                    <a href="{% url 'detalhes_livro' livro.id_livro %}">
                                         <div class="retangulo">
-                                            <img src="{% static 'img/evlynhugo.jpg' %}">
+                                            <img src="{{ livro.capa.url }}" alt="{{ livro.titulo }}">
                                         </div>
-                                        <p>Os 7 Maridos de Evlyn Hugo</p>
+                                        <p>{{livro.titulo}}</p>
                                     </a>
                                 </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/delilah.jpg' %}">
-                                    </div>
-                                    <p>Delilah Green não está nem ai</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/astrid.jpg' %}">
-                                    </div>
-                                    <p>Astrid Parker Nunca falha</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/girls.jpg' %}">
-                                    </div>
-                                    <p>Girls Like Girls</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/jogadaamor.jpg' %}">
-                                    </div>
-                                    <p>A Jogada do Amor</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/garotoscemiterio.jpg' %}">
-                                    </div>
-                                    <p>Os Garotos do Cemitério</p>
-                                </div>
-                                <div class="livro">
-                                    <div class="retangulo">
-                                        <img src="{% static 'img/garotamar.jpg' %}">
-                                    </div>
-                                    <p>A Garota do Mar</p>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

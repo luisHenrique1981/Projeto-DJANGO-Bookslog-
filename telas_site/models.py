@@ -1,35 +1,33 @@
 from django.db import models
-
-# Create your models here.
-class Cadastro(models.Model):
-    nome = models.CharField(max_length=100, unique=True)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-    cadastro_usuario_id = models.AutoField(primary_key=True)
-
-    def __str__(self):
-        return self.nome
+from django.contrib.auth.models import User
 
 class Resenha(models.Model):
     texto_resenha = models.CharField(max_length=500)
-    nota_resenha = models.IntegerField()
+    foto_usuario = models.ImageField(null=True, blank=True)
+    nota_resenha = models.DecimalField(max_digits=5, decimal_places=1)
     titulo_resenha = models.CharField(max_length=100)
     data_resenha = models.DateTimeField(auto_now_add=True)
     id_resenha = models.AutoField(primary_key=True)
+    id_livro = models.ForeignKey('Livro', on_delete=models.CASCADE, related_name='resenhas', null=True, blank=True)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='resenhas', null=True, blank=True)
 
 class Livro(models.Model):
     autor = models.CharField(max_length=100)
-    data_publicacao = models.DateField()
-    genero = models.TextField()
-    sinopse = models.CharField(max_length=200)
-    quantidade_paginas = models.IntegerField()
+    capa = models.ImageField(null=True, blank=True)
+    sinopse = models.CharField(max_length=350)
+    data_publicacao = models.TextField(max_length=80)
+    genero = models.TextField(max_length=80)
+    quantidade_paginas = models.TextField(max_length=80)
     titulo = models.CharField(max_length=100)
     editora = models.TextField()
     idioma = models.TextField()
     classificacao_indicativa = models.TextField()
-    resenhas = models.IntegerField()
+    foto_autor = models.ImageField(null=True, blank=True)
+    bio_autor = models.TextField(null=True, blank=True)
     id_livro = models.AutoField(primary_key=True)
-    resenha = models.ForeignKey(Resenha, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.titulo
 
 class Pesquisa(models.Model):
     genero = models.TextField()
@@ -52,21 +50,20 @@ class Lista(models.Model):
     lista_id = models.AutoField(primary_key=True)
 
 class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     nome = models.CharField(max_length=60)
     descricao = models.CharField(max_length=100)
-    lendo_atualmente = models.IntegerField()
-    pretende_ler = models.IntegerField()
-    lidos = models.IntegerField()
-    favoritos = models.IntegerField()
-    quantidade_seguidores = models.IntegerField()
-    quantidade_seguindo = models.IntegerField()
-    imagem_perfil = models.ImageField()
-    resenhas_usuario = models.IntegerField()
+    lendo_atualmente = models.IntegerField(null=True, blank=True)
+    pretende_ler = models.IntegerField(null=True, blank=True)
+    lidos = models.IntegerField(null=True, blank=True)
+    favoritos = models.IntegerField(null=True, blank=True)
+    quantidade_seguidores = models.IntegerField(null=True, blank=True)
+    quantidade_seguindo = models.IntegerField(null=True, blank=True)
+    imagem_perfil = models.ImageField(null=True, blank=True)
+    resenhas_usuario = models.IntegerField(null=True, blank=True)
     id_usuario = models.AutoField(primary_key=True)
-    cadastro = models.ForeignKey(Cadastro, on_delete=models.CASCADE)
-    resenha = models.ForeignKey(Resenha, on_delete=models.CASCADE)
-    grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
-    lista = models.ForeignKey(Lista, on_delete=models.CASCADE)
+    grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE,  null=True, blank=True)
+    lista = models.ForeignKey(Lista, on_delete=models.CASCADE, null=True, blank=True)
 
 class Usuario_has_Pesquisa(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)

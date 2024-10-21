@@ -1,159 +1,89 @@
-/*Estilização página CADASTRO*/
-
+/* Estilização página CADASTRO */
 .container-cadastro {
     width: 800px;
-    height: 636px;
-    margin: auto;
+    margin: 50px auto; 
     background-color: #24183d;
+    border-radius: 10px; 
+    padding: 30px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
 }
 
 .logo-cadastro {
     color: #F39C12;
-    display: flex;
-    font-size: 24px;
-    text-decoration: underline;
-    text-decoration-color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
     text-align: center;
-    justify-content: center;
-    gap: 8px;
-
 }
 
-.logo-cadastro > i {
-    margin-top: 8px;
+.logo-cadastro img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; 
+}
+
+.form {
+    width: 100%;
     color: white;
-    font-size: 45px;
+    max-width: 400px;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="password"],
+.form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    box-sizing: border-box;
+}
+
+.form input[type="text"]:focus,
+.form input[type="email"]:focus,
+.form input[type="password"]:focus,
+.form textarea:focus {
+    border-color: #F39C12;
+    outline: none;
+    box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
 }
 
 .form-header {
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
 }
 
-.login-button {
-    display: flex;
-    align-items: center;
-}
-
-.login-button button {
-    border: none;
-    background-color: #F39C12;
-    padding: 0.4rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.login-button button:hover {
-    background-color: #E74C3C;
-}
-
-.login-button button a {
-    text-decoration: none;
-    font-weight: 500;
-    color: #fff;
-}
-
-.form-header h1::after {
-    content: '';
-    display: block;
-    width: 5rem;
-    height: 0.3rem;
-    background-color: white;
-    margin: 0 auto;
-    position: absolute;
-    border-radius: 10px;
-}
-
-.input-group {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 1rem 0;
-}
-
-.input-box {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.1rem;
-}
-
-.input-box input {
-    margin: 0.6rem 0;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 6px #0000001c;
-}
-
-.input-box input::hover {
-    background-color: #eeeeee75;
-}
-
-.input-box input:focus-visible {
-    outline: 1px solid #6c63ff;
-}
-
-.input-box label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: white;
-}
-
-.input-box input::placeholder {
-    color:#000000be;
-}
-
-.continue-button button {
+.botao {
     width: 100%;
-    margin-top: 2.5rem;
-    border: none;
+    padding: 12px;
     background-color: #F39C12;
-    padding: 0.62rem;
-    border-radius: 5px;
+    color: white;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
 }
 
-
-.continue-button button:hover {
-    background-color: #E74C3C;
-}
-
-.continue-button button a {
-    text-decoration: none;
-    font-size: 0.93rem;
-    font-weight: 500;
-    color: #fff;
+.botao:hover {
+    background-color: #eb8517;
 }
 
 .sign-up-link2 {
-    color:white;
     text-align: center;
-    margin-top: 12px;
+    margin-top: 20px;
+    color: #bbb;
 }
 
-.submit-btn {
-    width: 100%;
-    height: 60px;
-    background-color: #F39C12;
-    border: none;
-    border-radius: 30px;
-    cursor:pointer;
-    transition: .3s;
+.sign-up-link2 a {
+    color: #F39C12;
+    text-decoration: none;
 }
-.input-submit label {
-    position: relative;
-    top: 45%;
-    left: 50%;
-    color: white;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-}
-.submit-btn:hover {
-    background: #000;
-    transform: scale(1.05,1);
+
+.sign-up-link2 a:hover {
+    text-decoration: underline;
 }

@@ -57,12 +57,12 @@
         <div>
             <main>
                 <div class='pesq-barra'>
-                    <div class='box2'>
-                        <input type='text' placeholder='Pesquise por um livro...'>
-                        <a href='#'>
+                    <form action="{% url 'buscar_livro' %}" method="GET" class='box2'>
+                        <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                        <button type="submit">
                             <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
-                        </a>
-                    </div>
+                        </button>
+                    </form>
                 </div>
                 <div>
                 </div>

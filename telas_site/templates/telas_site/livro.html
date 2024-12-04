@@ -23,10 +23,10 @@
                 </div>
                 <div style='display:flex;'>
                     <div class='box'>
-                        <input type='text' placeholder='Pesquise por um livro...'>
-                        <a href='#'>
-                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
-                        </a>
+                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
+                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                            <i class="fa-solid fa-magnifying-glass" style='background:transparent; border:none; outline:none;'></i>
+                        </form>
                     </div>
                     <button class="btn-default">
                         <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
@@ -39,7 +39,7 @@
                     <li><a href="{% url 'perfil' %}">Perfil</a></li>
                     <li><a href="#">Configurações</a></li>
                     <li><a href="{% url 'grupos' %}">Grupos</a></li>
-                    <li><a href="#">Sair</a></li>
+                    <li><a href="{% url 'user-logout' %}">Sair</a></li>
                 </ul>
             </div>
         </header>

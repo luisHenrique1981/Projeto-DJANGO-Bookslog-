@@ -20,9 +20,11 @@
                 </div>
                 <form action="{% url 'login' %}" method='POST'>{% csrf_token%}
                     {{loginform.as_p}}
-                    <input type='submit' value="Login">
+                    <div style='align-items: center; justify-content: center; text-align: center;'>
+                        <input type='submit' value="Login">
+                    </div>
                     <div class='sign-up-link'>
-                        <p>Não possui uma conta?<a href='#'>Cadastrar-se</a></p>
+                        <p style='margin-right: 8px; margin-bottom:8px; '>Não possui uma conta?<a href='#'>Cadastrar-se</a></p>
                     </div>
                 </form>
                 <div class='forgot'>

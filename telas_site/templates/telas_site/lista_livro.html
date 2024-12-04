@@ -33,10 +33,10 @@
                 </ul>
                 <div style='display:flex;'>
                     <div class='box'>
-                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
-                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
-                            <i class="fa-solid fa-magnifying-glass" style='background:transparent; border:none; outline:none;'></i>
-                        </form>
+                        <input type='text' placeholder='Pesquise por um livro...'>
+                        <a href='#'>
+                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
+                        </a>
                     </div>
                     <button class="btn-default">
                         <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
@@ -54,58 +54,7 @@
             </div>
         </header>
         <main class="principal" style='margin-top:80px;'>
-            <h1 style='font-size:40px;'>Bem-vindo ao nosso universo literário!</h1>
-            <div class="conteudo-sobre">
-                <p>
-                    Neste refúgio virtual, cada livro se torna uma janela 
-                    aberta para um universo único, convidando-nos a explorar 
-                    paisagens inexploradas, conhecer personagens cativantes 
-                    e experimentar emoções intensas. Aqui, nos perdemos nas 
-                    páginas como em um labirinto encantado, onde o tempo 
-                    desacelera e a imaginação voa livremente. Cada obra é mais 
-                    do que uma simples história; é um convite para uma jornada 
-                    de autodescoberta, um mergulho profundo nas profundezas da 
-                    alma humana.
-                </p>
-                <p>Neste cantinho acolhedor, criamos um espaço para os apaixonados 
-                    por livros se reunirem, compartilharem suas paixões e descobrirem 
-                    novas aventuras literárias. Somos um coletivo de sonhadores, unidos 
-                    pela crença no poder transformador das palavras e pela vontade de 
-                    explorar as infinitas possibilidades que os livros oferecem. Aqui, 
-                    cada página virada é uma oportunidade para expandir nossos horizontes, 
-                    desafiar nossas perspectivas e conectar-nos com outras mentes curiosas 
-                    que compartilham nossa paixão pela leitura.
-                </p>
-                <div class="texto_sobre">
-                    <img src="{% static 'img/leitura2.jpg' %}">
-                    <p>
-                        Além disso, este espaço é um convite para a celebração da diversidade 
-                        literária, onde diferentes vozes e perspectivas são valorizadas e celebradas. 
-                        Aqui, você encontrará obras que abrangem uma ampla gama de gêneros, estilos 
-                        e temas, desde clássicos intemporais até as mais recentes inovações da 
-                        literatura contemporânea. Estamos comprometidos em promover a inclusão e a 
-                        representatividade, garantindo que todos os leitores encontrem histórias que 
-                        ressoem com suas experiências e identidades.
-                    </p>
-                    <img src="{% static 'img/leitura3.jpg' %}">
-                </div>
-                <p>
-                    Seja você um devorador voraz de romances, um apreciador de poesia, um explorador 
-                    dos confins do universo da fantasia, ou um entusiasta ávido por obras de não-ficção, 
-                    há sempre algo especial esperando por você aqui. Este é um espaço de encontro, de 
-                    troca de ideias e de descoberta mútua, onde as fronteiras entre os mundos fictícios 
-                    e reais se dissolvem, dando lugar a uma comunidade unida pelo amor à literatura.
-                </p>
-                <p>
-                    Então, venha fazer parte desta jornada extraordinária, onde cada página virada 
-                    é uma aventura, e cada livro é uma porta para um novo horizonte de possibilidades. 
-                    Estamos ansiosos para compartilhar essa viagem com você, para explorar juntos os 
-                    tesouros escondidos nos corredores da imaginação e para criar memórias duradouras 
-                    através das histórias que nos conectam. Seja bem-vindo a este espaço mágico, onde 
-                    os livros são mais do que meras palavras impressas; são portais para infinitas 
-                    realidades e fontes de inspiração inesgotável.
-                </p>
-            </div>
+           
         </main>
         <footer class='rodape' style='margin-top:200px;'>
             <div class='roda-1' style='display:flex; justify-content: space-around;'>

@@ -33,10 +33,10 @@
                 </ul>
                 <div style='display:flex;'>
                     <div class='box'>
-                        <input type='text' placeholder='Pesquise por um livro...'>
-                        <a href='#'>
-                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
-                        </a>
+                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
+                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                            <i class="fas fa-search" style='background:transparent; border:none; outline:none;'></i>
+                        </form>
                     </div>
                     <button class="btn-default">
                         <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
@@ -66,6 +66,13 @@
                     </div>
                     <div class="sobre-programadores">
                         <div class="redondo">
+                            <img src="{% static 'img/emily2.jpg' %}"class="imagem-redonda">
+                        </div>
+                        <h2>Programadora</h2>
+                        <p>Emilly Aquino</p>
+                    </div>
+                    <div class="sobre-programadores">
+                        <div class="redondo">
                             <img src="{% static 'img/gabriel2.jpg' %}" class="imagem-redonda">
                         </div>
                         <h2>Programador</h2>
@@ -73,7 +80,7 @@
                     </div>
                     <div class="sobre-programadores">
                         <div class="redondo">
-                            <img src="{% static 'img/luis1.jpg' %}" class="imagem-redonda">
+                            <img src="{% static 'img/luis.jpg' %}" class="imagem-redonda">
                         </div>
                         <h2>Programador</h2>
                         <p>Luis Henrique</p>

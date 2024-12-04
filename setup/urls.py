@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static 
 
 from telas_site import views
-from telas_site.views import home
+from telas_site.views import home, lista_livro
 from telas_site.views import sobre
 from telas_site.views import equipe
 from telas_site.views import catalogo
@@ -49,6 +49,7 @@ urlpatterns = [
     path('caso/', views.caso, name='caso'),
     path('modelo/', views.modelo, name='modelo'),
     path('', include('telas_site.urls')),
+    path('buscar/', views.buscar_livro, name='buscar_livro'),
 ]
 
 if settings.DEBUG:

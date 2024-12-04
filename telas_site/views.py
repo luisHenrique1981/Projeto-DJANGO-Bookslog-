@@ -2,16 +2,10 @@ from django.contrib import messages
 import random
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
-from . import views
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
-from django.contrib.auth import login as login_django
-from .models import Citacao, Usuario
-from .models import Livro, Resenha
+from .models import Citacao, Usuario, Livro, Resenha
 from .forms import CreateUserForm, LoginForm
-from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout, login as auth_login, logout as auth_logout
 
 def home(request):
     citacoes = Citacao.objects.all()
@@ -29,11 +23,14 @@ def home(request):
 
 def detalhes_livro(request, id_livro):
     livro = get_object_or_404(Livro, id_livro=id_livro)
-    resenhas = livro.resenhas.all()
+    resenhas = livro.resenhas.all() 
     context = {
-        'livro': livro,
+        'livro': livro
     }
     return render(request, "telas_site/livro.html", context)
+
+def lista_livro(request):
+    return render(request, "telas_site/lista_livro.html")
 
 def sobre(request):
     return render(request, "telas_site/sobre.html")
@@ -49,17 +46,6 @@ def grupos(request):
 
 def livro(request):
     return render(request, "telas_site/livro.html")
-
-def detalhes_livro(request, id_livro):
-    try:
-        livro = Livro.objects.get(id_livro=id_livro)
-    except Livro.DoesNotExist:
-        return HttpResponse("Livro não encontrado.", status=404)
-    
-    context = {
-        'livro': livro
-    }
-    return render(request, "telas_site/livro.html", context)
 
 def inicial(request):
     return render(request,"telas_site/inicial.html")
@@ -77,23 +63,19 @@ def cadastro(request):
         if form.is_valid():
             form.save()
             return redirect("login")
-    context = {'registerform':form}
+    context = {'registerform': form}
     return render(request, 'telas_site/cadastro.html', context=context)
 
 def login(request):
     if request.user.is_authenticated:
         return redirect('home')
-    
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request, data=request.POST)
-
         if form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
-
             user = authenticate(request, username=username, password=password)
-            
             if user is not None:
                 auth_login(request, user)
                 return redirect('home')
@@ -102,14 +84,20 @@ def login(request):
     return render(request, 'telas_site/login.html', context=context)
 
 def user_logout(request):
-
-    auth.logout(request)
+    auth_logout(request)
     return redirect('inicial')
 
-@login_required
 def perfil(request):
-    usuario = get_object_or_404(Usuario, user=request.user)
-    context = {
-        'user': usuario
-    }
-    return render(request, "telas_site/perfil.html", context)
+    return render(request, "telas_site/perfil.html")
+
+def buscar_livro(request):
+    query = request.GET.get('q') 
+    if query:
+        try:
+            livro = Livro.objects.get(titulo__iexact=query)
+            return redirect('detalhes_livro', id_livro=livro.id_livro)
+        except Livro.DoesNotExist:
+            messages.error(request, "Livro não encontrado.")
+            return redirect('catalogo') 
+    return redirect('home')  
+

@@ -25,7 +25,7 @@
                         <a href="{% url 'home' %}" style='color:white;'>Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="#" style='color:white;'>Sobre nós</a>
+                        <a href="{% url 'sobre' %}" style='color:white;'>Sobre nós</a>
                     </li>
                     <li class="nav-item">
                         <a href="{% url 'equipe' %}" style='color:white;'>Equipe</a>
@@ -33,10 +33,10 @@
                 </ul>
                 <div style='display:flex;'>
                     <div class='box'>
-                        <input type='text' placeholder='Pesquise por um livro...'>
-                        <a href='#'>
-                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
-                        </a>
+                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
+                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                            <i class="fa-solid fa-magnifying-glass" style='background:transparent; border:none; outline:none;'></i>
+                        </form>
                     </div>
                     <button class="btn-default">
                         <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
@@ -49,7 +49,7 @@
                     <li><a href="#">Perfil</a></li>
                     <li><a href="#">Configurações</a></li>
                     <li><a href="{% url 'grupos' %}">Grupos</a></li>
-                    <li><a href="#">Sair</a></li>
+                    <li><a href="{% url 'user-logout' %}">Sair</a></li>
                 </ul>
             </div>
         </header>
@@ -60,7 +60,7 @@
                         <div style='display:flex; justify-content:space-between; align-items:center;'>
                             <div style='display:flex; align-items:center;'>
                                 <div class="redondo3" style='margin-right: 10px;'>
-                                    <img src="{{ }}" class="imagem-redonda3">
+                                    <img src="{% static 'img/user2.png' %}" class="imagem-redonda3">
                                 </div>
                                 <p style='font-size: 24px; font-weight: 500;'>{{ user.username }}</p>
                             </div>
@@ -76,7 +76,7 @@
                             </div>  
                         </div>
                         <div style='margin-top:10px;'>
-                            <p> BlabLabalbalblablablablbalblablablabla </p>
+                            <p> Oi, eu sou Alex e sou um apaixonado por literatura. Desde pequeno, encontrei nos livros uma forma de escapar da realidade e explorar novas ideias e mundos. Leio uma variedade de gêneros, incluindo ficção, não-ficção, fantasia e clássicos da literatura.</p>
                         </div>
                     </div>
                     <div style='width: 100%; max-width: 800px; display:flex; justify-content:space-between; margin-top:30px;'>

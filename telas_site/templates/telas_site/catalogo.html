@@ -33,10 +33,12 @@
                 </ul>
                 <div style='display:flex;'>
                     <div class='box'>
-                        <input type='text' placeholder='Pesquise por um livro...'>
-                        <a href='#'>
-                            <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
-                        </a>
+                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
+                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass" style='color:#34495E'></i>
+                            </button>
+                        </form>
                     </div>
                     <button class="btn-default">
                         <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>

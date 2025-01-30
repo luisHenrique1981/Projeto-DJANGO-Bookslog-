@@ -60,7 +60,11 @@
                         <div style='display:flex; justify-content:space-between; align-items:center;'>
                             <div style='display:flex; align-items:center;'>
                                 <div class="redondo3" style='margin-right: 10px;'>
-                                    <img src="{% static 'img/user2.png' %}" class="imagem-redonda3">
+                                    {% if user.usuario.imagem_perfil %}
+                                        <img src="{{ user.usuario.imagem_perfil.url }}" class="imagem-redonda3" id="profileImage">
+                                    {% else %}
+                                        <img src="{% static 'img/user2.png' %}" class="imagem-redonda3" id="profileImage">
+                                    {% endif %}
                                 </div>
                                 <p style='font-size: 24px; font-weight: 500;'>{{ user.username }}</p>
                             </div>
@@ -73,32 +77,54 @@
                                     <p style='color: #F39C12; font-weight:bold;'>46</p>
                                     <p>Seguindo</p>
                                 </div>
-                            </div>  
+                            </div>
+                            <div class="">
+                                <div>
+                                    <button class="button1" href="#" onclick="editBio()">Editar Bio</button>
+                                </div>
+                                <div style='margin-top:4px;'>
+                                    <button class="button1" href="#" onclick="changeProfileImage()">Foto Perfil</button>
+                                </div>
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    <button class="button1" style='margin-top:4px;' type="submit">Salvar</button>
+                                </form>                                
+                            </div>
                         </div>
+                        
                         <div style='margin-top:10px;'>
-                            <p> Oi, eu sou Alex e sou um apaixonado por literatura. Desde pequeno, encontrei nos livros uma forma de escapar da realidade e explorar novas ideias e mundos. Leio uma variedade de gêneros, incluindo ficção, não-ficção, fantasia e clássicos da literatura.</p>
+                            <p id="bioText">Oi, eu sou Alex e sou um apaixonado por literatura. Desde pequeno, encontrei nos livros uma forma de escapar da realidade e explorar novas ideias e mundos. Leio uma variedade de gêneros, incluindo ficção, não-ficção, fantasia e clássicos da literatura.</p>
+                        </div>
+                        <div id="bioModal" class="modal">
+                            <div class="modal-content">
+                                <textarea class='textobio' id="bioInput" rows="5" cols="50" style="display:none;"></textarea>
+                                <br><br>
+                                <button class='editar' onclick="saveBio()">Salvar</button>
+                                <button class='editar' onclick="closeModal()">Cancelar</button>
+                            </div>
                         </div>
                     </div>
                     <div style='width: 100%; max-width: 800px; display:flex; justify-content:space-between; margin-top:30px;'>
                         <div style='background-color:#2C3E50; padding: 10px; text-align:center; border-radius: 10px;'>
                             <p style='color:white;'>Lendo</p>
-                            <p style='color: #F39C12; font-weight:bold;'>76</p>
+                            <p style='color: #F39C12; font-weight:bold;'>{{ livros_lendo }}</p>
                         </div>
                         <div style='background-color:#2C3E50; padding: 10px; text-align:center; border-radius: 10px;'>
                             <p style='color:white;'>Quer Ler</p>
-                            <p style='color: #F39C12; font-weight:bold;'>76</p>
+                            <p style='color: #F39C12; font-weight:bold;'>{{ livros_quero_ler }}</p>
                         </div>
                         <div style='background-color:#2C3E50; padding: 10px; text-align:center; border-radius: 10px;'>
                             <p style='color:white;'>Relendo</p>
-                            <p style='color: #F39C12; font-weight:bold;'>76</p>
+                            <p style='color: #F39C12; font-weight:bold;'>{{ livros_relendo }}</p>
                         </div>
                         <div style='background-color:#2C3E50; padding: 10px; text-align:center; border-radius: 10px;'>
                             <p style='color:white;'>Largou</p>
-                            <p style='color: #F39C12; font-weight:bold;'>76</p>
+                            <p style='color: #F39C12; font-weight:bold;'>{{ livros_larguei }}</p>
                         </div>
                         <div style='background-color:#2C3E50; padding: 10px; text-align:center; border-radius: 10px;'>
                             <p style='color:white;'>Resenhas</p>
-                            <p style='color: #F39C12; font-weight:bold;'>76</p>
+                            <p style='color: #F39C12; font-weight:bold;'> {{ total_resenhas }} </p>
                         </div>
                     </div>
                     <div style='display:flex; '>
@@ -192,13 +218,88 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
-                    
-
                 </div>
             </div>
         </main>
+        <script>
+            document.getElementById("dropdownIcon").addEventListener("click", function(event) {
+                event.stopPropagation(); 
+                let menu = document.getElementById("dropdownMenu");
+                menu.classList.toggle("show");
+            });
+        
+            document.addEventListener("click", function(event) {
+                let menu = document.getElementById("dropdownMenu");
+                if (!menu.contains(event.target) && event.target.id !== "dropdownIcon") {
+                    menu.classList.remove("show");
+                }
+            });
+
+            function editBio() {
+                var bioText = document.getElementById("bioText");
+                var bioInput = document.getElementById("bioInput");
+
+                bioInput.value = bioText.textContent || bioText.innerText;
+                
+                var modal = document.getElementById("bioModal");
+                modal.style.display = "block";
+
+                bioInput.style.display = "block"; 
+            }
+
+            function saveBio() {
+                var bioText = document.getElementById("bioText");
+                var bioInput = document.getElementById("bioInput");
+
+                bioText.textContent = bioInput.value;
+                
+                closeModal();
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("bioModal");
+                modal.style.display = "none";
+
+                var bioInput = document.getElementById("bioInput");
+                bioInput.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                var modal = document.getElementById("bioModal");
+                if (event.target == modal) {
+                    closeModal();
+                }
+            }
+
+            function changeProfileImage() {
+                var fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = 'image/*';
+            
+                fileInput.onchange = function(event) {
+                    var file = event.target.files[0];
+                    var formData = new FormData();
+                    formData.append('imagem_perfil', file);
+            
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '/editar-perfil/', true);
+                    xhr.setRequestHeader('X-CSRFToken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+            
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            var image = document.getElementById("profileImage");
+                            image.src = URL.createObjectURL(file);
+                        }
+                    };
+            
+                    xhr.send(formData);
+                };
+            
+                fileInput.click();
+            }            
+
+        </script>
         <footer class='rodape' style='margin-top:200px;'>
             <div class='roda-1' style='display:flex; justify-content: space-around;'>
               <div>

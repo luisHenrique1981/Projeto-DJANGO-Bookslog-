@@ -1,0 +1,122 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <a  href="https://icons8.com/icon/59878/pesquisar"></a><a href="https://icons8.com"></a>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link href="{% static 'telas_site\templates\telas_site\inicial\inicial.css' %}" rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <title>Noticia</title>
+</head>
+<body>
+    <div class="container3">
+        <header style='background-color:#3d2d6a; box-shadow:2px 2px 5px rgba(0, 0, 0, 0.3); padding: 20px 20px;'>
+            <nav class="navbar">
+                <div class="nav-logo">
+                    <img src="{% static 'img/icon-book32.png' %}">
+                    <a href="{% url 'home' %}" class="texto9f">Bookslog</a>
+                </div>
+                <ul class="lista-navbar">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" style='color:white;'>Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{% url 'sobre' %}" style='color:white;'>Sobre nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'equipe' %}" style='color:white;'>Equipe</a>
+                    </li>
+                </ul>
+                <div style='display:flex;'>
+                    <div class='box'>
+                        <form action="{% url 'buscar_livro' %}" method="GET" class='pesq-form'>
+                            <input type='text' name='q' placeholder='Pesquise por um livro...' required>
+                            <i class="fa-solid fa-magnifying-glass" style='background:transparent; border:none; outline:none;'></i>
+                        </form>
+                    </div>
+                    <button class="btn-default">
+                        <i class="fa-solid fa-bars"  onclick="abrir_nav()" style='color:white;'></i>
+                    </button>
+                </div>
+            </nav>
+            <div id="menu-lateral" class="menu-lateral">
+                <button class="btn-close" onclick="fechar_nav()">&times;</button>
+                <ul class="menu-list">
+                    <li><a href="{% url 'perfil' %}">Perfil</a></li>
+                    <li><a href="#">Configurações</a></li>
+                    <li><a href="{% url 'grupos' %}">Grupos</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
+        </header>
+        <main class="principal" style='margin-top:80px;'>
+            <div>
+                <div class='texto-noticia'>
+                    <div class='info-noticia'>
+                        <p>Pedro Alvarez Rodrigues</p>
+                        <p>Há 6 dias</p>
+                        <p>6 min leitura</p>
+                    </div>
+                    <div class='titulo-noticia'>
+                        <h1>Frankenstein de Mary Shelley: O Monstro da Ciência e suas Consequências Éticas</h1>
+                    </div>
+                    <div class='texto-noticia'>
+
+                    </div>
+                </div>
+            </div>
+            
+        </main>
+        <footer class='rodape' style='margin-top:200px;'>
+            <div class='roda-1' style='display:flex; justify-content: space-around;'>
+              <div>
+                <h3 style='display:flex;'>
+                  <span style='color:#F39C12; font-size: 28px;'>Bookslog</span>
+                  <i class="fa-solid fa-book" style='font-size: 30px; color: #F39C12; margin-left:4px;'></i>
+                </h3>
+                <p style='color: #ECF0F1;'>
+                  Bem-vindo ao nosso Universo Literário!<br> Explore resenhas e recomendações sobre<br> livros e muito mais. Cadastre-se para acesso <br>exclusivo e faça parte da nossa comunidade<br> de leitores apaixonados. Seja bem-vindo à <br>nossa jornada literária!
+                </p>
+              </div>
+              <div>
+                <div class='texto-roda'>
+                  <h4>LEGAL</h4>
+                  <p>Politica de Privacidade</p>
+                  <p>Termos de Serviço</p>
+                </div>
+                <div class='texto-roda'>
+                  <h4> AJUDA</h4>
+                  <p>Tutoriais</p>
+                  <p>Base de Conhecimentos</p>
+                  <p>Denunciar Abuso</p>
+                </div>
+              </div>
+              <div class='texto-roda'>
+                <h4 >INFORMAÇÕES</h4>
+                <p>Sobre Nós</p>
+                <p>Como Funciona</p>
+                <p>Direitos Autorais</p>
+                <p>Parcerias e Apoiadores</p>
+                <p>Condições de Servico Premium</p>
+                <p>Contate-nos</p>
+              </div>
+            </div>
+            <div class='roda-2'></div>
+            <div class='info-ro' style='display:flex; color:#F39C12;'>
+              <p>@ 2024 | Desenvolvido por Chocoifs</p>
+              <div style='font-size: 24px; color:#F39C12; margin-top:12px;'>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-square-facebook"></i>
+                <i class="fa-brands fa-square-x-twitter"></i>
+              </div>
+            </div>
+          </footer>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

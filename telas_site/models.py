@@ -1,17 +1,14 @@
+from decimal import Decimal
+from django.dispatch import receiver
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
+from django.db.models.signals import post_save, post_delete
 
-class Resenha(models.Model):
-    texto_resenha = models.CharField(max_length=500)
-    foto_usuario = models.ImageField(null=True, blank=True)
-    nota_resenha = models.DecimalField(max_digits=5, decimal_places=1)
-    titulo_resenha = models.CharField(max_length=100)
-    data_resenha = models.DateTimeField(auto_now_add=True)
-    id_resenha = models.AutoField(primary_key=True)
-    id_livro = models.ForeignKey('Livro', on_delete=models.CASCADE, related_name='resenhas', null=True, blank=True)
-    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='resenhas', null=True, blank=True)
-
+        
 class Livro(models.Model):
+    id_livro = models.AutoField(primary_key=True)
     autor = models.CharField(max_length=100)
     capa = models.ImageField(null=True, blank=True)
     sinopse = models.CharField(max_length=350)
@@ -24,10 +21,28 @@ class Livro(models.Model):
     classificacao_indicativa = models.TextField()
     foto_autor = models.ImageField(null=True, blank=True)
     bio_autor = models.TextField(null=True, blank=True)
-    id_livro = models.AutoField(primary_key=True)
 
     def __str__(self):
         return self.titulo
+    
+    def media_avaliacoes(self):
+        media = self.resenhas.aggregate(media=Avg('nota_resenha'))['media']
+        
+        if media is None:
+            return "Sem avaliações" 
+
+        return round(Decimal(media), 2)
+
+class Resenha(models.Model):
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, related_name='resenhas') 
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    titulo_resenha = models.CharField(max_length=200)
+    texto_resenha = models.TextField()
+    nota_resenha = models.PositiveSmallIntegerField(choices=[(i, i) for i in range(1, 6)])
+    id = models.AutoField(primary_key=True)
+
+    def __str__(self):
+        return f'Resenha de {self.usuario.username} sobre {self.livro.titulo}'
 
 class Pesquisa(models.Model):
     genero = models.TextField()
@@ -77,3 +92,44 @@ class Citacao(models.Model):
 
     def __str__(self):
         return self.titulo
+    
+class InteracaoLivro(models.Model):
+    STATUS_CHOICES = [
+        ('lido', 'Lido'),
+        ('lendo', 'Lendo'),
+        ('quero_ler', 'Quero Ler'),
+        ('favorito', 'Favorito'),
+        ('relendo', 'Relendo'),
+        ('larguei', 'Larguei'),
+    ]
+    
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)  
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    data_interacao = models.DateTimeField(default=timezone.now) 
+
+    class Meta:
+        unique_together = ('livro', 'usuario')  
+
+    def __str__(self):
+        return f'{self.usuario.username} - {self.livro.titulo} - {self.status}'
+
+class Review(models.Model):
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    rating = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class StatusLeitura(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)  
+    status = models.CharField(max_length=20, choices=[
+        ('lido', 'Lido'),
+        ('lendo', 'Lendo'),
+        ('quero_ler', 'Quero Ler'),
+        ('favorito', 'Favorito'),
+        ('relendo', 'Relendo'),
+        ('larguei', 'Larguei'),
+    ])
+    data_atualizacao = models.DateTimeField(auto_now=True)

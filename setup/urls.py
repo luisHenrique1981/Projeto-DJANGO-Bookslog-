@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static 
+from django.views.generic import RedirectView
 
 from telas_site import views
 from telas_site.views import home, lista_livro
@@ -43,13 +44,19 @@ urlpatterns = [
     path('cadastro/', views.cadastro, name='cadastro'),
     path('grupos/',views.grupos, name='grupos'),
     path('livro/', views.livro, name='livro'),
-    path('livro/<int:id_livro>/', views.detalhes_livro, name='detalhes_livro'),
+    path('livro/<int:id_livro>/', views.livro_detalhe, name='detalhes_livro'),
     path("inicial/",views.inicial, name='inicial'),
     path("perfil/", views.perfil, name='perfil'),
+    path('editar-perfil/', views.editar_perfil, name='editar_perfil'),
     path('caso/', views.caso, name='caso'),
     path('modelo/', views.modelo, name='modelo'),
     path('', include('telas_site.urls')),
     path('buscar/', views.buscar_livro, name='buscar_livro'),
+    path('livro/<int:book_id>/resenha/', views.submit_review, name='submit_review'),
+    path('delete_review/<int:review_id>/', views.delete_review, name='delete_review'),
+    path('livro/<int:id_livro>/interagir/<str:status>/', views.interagir_livro, name='interagir_livro'),
+    path('favicon.ico', RedirectView.as_view(url='/static/img/favicon.ico', permanent=True)),
+    path('noticia/', views.noticia, name='noticia'),
 ]
 
 if settings.DEBUG:

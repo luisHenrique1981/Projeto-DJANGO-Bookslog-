@@ -52,3 +52,5 @@ document.addEventListener("DOMContentLoaded", () => {
         tabsContainer.querySelector(".tabs__sidebar .tabs__button").click();
     })
 });
+
+

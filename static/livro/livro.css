@@ -156,3 +156,35 @@
     margin: 0; 
     text-align: justify; 
 }
+
+.estrelas {
+    font-size: 24px;  /* Tamanho das estrelas */
+}
+
+.estrela.cheia {
+    color: gold;  /* Cor da estrela cheia */
+}
+
+.estrela.vazia {
+    color: gray;  /* Cor da estrela vazia */
+}
+
+.icon-selected {
+    color: #007bff; /* Azul para indicar seleção */
+    transform: scale(1.2); /* Aumenta o tamanho ligeiramente */
+}
+
+.btn-cliq {
+    background-color: #f1f1f1;  /* Cor de fundo */
+    border: none;
+    padding: 8px 16px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.btn-cliq:hover {
+    background-color: #ddd;  /* Efeito de hover */
+}
+

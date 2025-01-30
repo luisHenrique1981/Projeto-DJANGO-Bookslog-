@@ -66,7 +66,7 @@
                 </div>
                 <div style='display:flex; justify-content:center; margin-top:12px;'>
                     <div style='background-color:#F39C12; padding:10px 10px; border-radius: 8px; color:white;'>
-                        4.2
+                        {{ livro.media_avaliacoes|default:"Sem avaliações" }}
                     </div>
                     <div style='margin-left:8px;'>
                         <div>
@@ -76,21 +76,21 @@
                             <i class="fa-solid fa-star" style='color:yellow;'></i>
                             <i class="fa-solid fa-star" style='color:yellow;'></i>
                         </div>
-                        <p>(6000 avaliações)</p>
+                        <p>({{ quantidade_resenhas }} avaliações)</p>
                     </div>
                 </div>
-                <div style='text-align:center; margin-top:8px;'>
+                <div style="text-align:center; margin-top:8px;">
                     <div>
-                        <i class="fa-regular fa-square-check icon-cliq" ></i>
-                        <i class="fa-solid fa-book-open-reader icon-cliq" ></i>
-                        <i class="fa-regular fa-clock icon-cliq" ></i>
+                        <i class="fa-regular fa-square-check icon-cliq" data-status="lido" data-livro-id="{{ livro.id_livro }}"></i>
+                        <i class="fa-solid fa-book-open-reader icon-cliq" data-status="lendo" data-livro-id="{{ livro.id_livro }}"></i>
+                        <i class="fa-regular fa-clock icon-cliq" data-status="quero_ler" data-livro-id="{{ livro.id_livro }}"></i>
                     </div>
-                    <div style='margin-top:8px;'>
-                        <i class="fa-regular fa-heart icon-cliq" ></i>
-                        <i class="fa-solid fa-rotate-right icon-cliq" ></i>
-                        <i class="fa-solid fa-trash icon-cliq"></i>
+                    <div style="margin-top:8px;">
+                        <i class="fa-regular fa-heart icon-cliq" data-status="favorito" data-livro-id="{{ livro.id_livro }}"></i>
+                        <i class="fa-solid fa-rotate-right icon-cliq" data-status="relendo" data-livro-id="{{ livro.id_livro }}"></i>
+                        <i class="fa-solid fa-trash icon-cliq" data-status="larguei" data-livro-id="{{ livro.id_livro }}"></i>
                     </div>
-                </div>
+                </div>                                              
             </div>
             <div>
                 <h3> {{livro.titulo}} <br><span style='font-weight: normal; font-size:16px;'> {{livro.autor}} </span></h3>
@@ -127,23 +127,23 @@
         <div style='display:flex; justify-content:center; margin-top:30px;'>
             <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
                 <p style='color:white;'>Lendo</p>
-                <p style='color: #F39C12; font-weight:bold;'>76</p>
+                <p style='color: #F39C12; font-weight:bold;'>{{ status_counts.lendo }}</p>
             </div>
             <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
                 <p style='color:white;'>Querem Ler</p>
-                <p style='color: #F39C12; font-weight:bold;'>76</p>
+                <p style='color: #F39C12; font-weight:bold;'>{{ status_counts.quero_ler }}</p>
             </div>
             <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
                 <p style='color:white;'>Relendo</p>
-                <p style='color: #F39C12; font-weight:bold;'>76</p>
+                <p style='color: #F39C12; font-weight:bold;'>{{ status_counts.relendo }}</p>
             </div>
             <div style='margin-right:100px; background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
                 <p style='color:white;'>Largaram</p>
-                <p style='color: #F39C12; font-weight:bold;'>76</p>
+                <p style='color: #F39C12; font-weight:bold;'>{{ status_counts.larguei }}</p>
             </div>
             <div style='background-color:#24183d; padding: 10px 10px; text-align:center; border-radius: 10px;'>
-                <p style='color:white;'>Resenhas</p>
-                <p style='color: #F39C12; font-weight:bold;'>76</p>
+                <p style='color:white;'>Lido</p>
+                <p style='color: #F39C12; font-weight:bold;'>{{ status_counts.lidos }}</p>
             </div>
         </div>
         <div class="avaliacoes-container">
@@ -159,57 +159,45 @@
             </div>
             <div class='noticias2'>
                 <div style='padding: 0px 100px;'>
-                    <div class='cont-noticia2'>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>{{resenha.titulo_resenha}}<br><span style='font-weight: normal;'>{{resenha.id_usuario}}<br>{{resenha.nota_resenha}}</span></h4>
+                    {% for resenha in resenhas %}
+                        <div class='cont-noticia2'>
+                            <div class="livros3f">
+                                <div style='display:flex;'>
+                                    <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
+                                    <h4 style='margin-bottom:30px;'>
+                                        {{ resenha.titulo_resenha }}<br>
+                                        <span style='font-weight: normal; display: flex;'>
+                                            por {{ resenha.usuario.username }}<br>
+                                            <p style='margin-left:10px;'><strong>Nota:</strong> {{ resenha.nota_resenha }} / 5</p>
+                                            <i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i>
+                                            <i class="fa-regular fa-comment" style='margin-right:10px;'></i>
+                                            {% if resenha.usuario == request.user %}
+                                                <form action="{% url 'delete_review' resenha.id %}" method="post" style="margin: 0;">
+                                                    {% csrf_token %}
+                                                    <button type="submit" style="background-color: transparent; border: none; color: red; cursor: pointer;">
+                                                        <i class="fa-solid fa-trash"></i> Excluir
+                                                    </button>
+                                                </form>
+                                            {% endif %}
+                                        </span>
+                                    </h4>
+                                    
+                                </div>
+                                <p>{{ resenha.texto_resenha }}</p>
                             </div>
-                            <p>{{resenha.texto_resenha}}</p>
                         </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Uma experiencia diferente...<br><span style='font-weight: normal;'>por Amanda Silva<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Vale a pena dar uma lida<br><span style='font-weight: normal;'>por Joao Gomes<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Gostei, mas tenho ressalvas<br><span style='font-weight: normal;'>por Thaune Trindade<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Odiei!<br><span style='font-weight: normal;'>por Felix Dior<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px; '>Os 7 motivos para não ler esse livro<br><span style='font-weight: normal;'>por Kate Blanchett<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star-half-stroke" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                        <div class="livros3f">
-                            <div style='display:flex;'>
-                                <i class="fa-regular fa-circle-user" style='font-size:46px; margin-right:10px;'></i>
-                                <h4 style='margin-bottom:30px;'>Recomendo<br><span style='font-weight: normal;'>por Noiva da Paris Hilton<br><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-solid fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-star" style='color: #F39C12'></i><i class="fa-regular fa-heart" style='margin-left:10px; margin-right:4px;'></i><i class="fa-regular fa-comment"></i></span></h4>
-                            </div>
-                            <p>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum<br>LoremipsumLoremipsum</p>
-                        </div>
-                    </div>
+                    {% endfor %}
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin-top:20px;">
+                    <button class="button1" id="show-form-button" onclick="toggleForm()">Avaliar Livro</button>
+                </div>
+                
+                <div id="review-form-container" style="display: none;">
+                    <form method="post" action="{% url 'submit_review' book_id=livro.id_livro %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="button1" style='margin-top:10px;' type="submit">Enviar Resenha</button>
+                    </form>
                 </div>
             </div>
             <div>
@@ -290,6 +278,96 @@
             </div>
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const buttons = document.querySelectorAll('.icon-cliq');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const livroId = button.getAttribute('data-livro-id');
+                    const status = button.getAttribute('data-status');
+        
+                    fetch(`/livro/${livroId}/interagir/${status}/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                        },
+                        body: JSON.stringify({status: status, livro_id: livroId})
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message); 
+                        } else {
+                            alert(data.message);  
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+                });
+            });
+        });
+
+        function toggleForm() {
+            var formContainer = document.getElementById('review-form-container');
+            var button = document.getElementById('show-form-button');
+    
+            if (formContainer.style.display === 'none') {
+                formContainer.style.display = 'block';
+                button.textContent = 'Cancelar avaliação';
+            } else {
+                formContainer.style.display = 'none';
+                button.textContent = 'Avaliar Livro';
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const botoesInteracao = document.querySelectorAll(".icon-cliq");
+        
+            botoesInteracao.forEach(botao => {
+                botao.addEventListener("click", function () {
+                    const status = this.getAttribute("data-status");
+                    const livroId = this.getAttribute("data-livro-id");
+        
+                    if (!status || !livroId) {
+                        console.error("Dados do botão incompletos.");
+                        return;
+                    }
+        
+                    fetch("/livro/interagir/", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRFToken": getCookie("csrftoken") 
+                        },
+                        body: JSON.stringify({ status: status, livro_id: livroId })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Erro na requisição.");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        alert(data.message || "Interação realizada com sucesso!");
+                    })
+                });
+            });
+        
+            function getCookie(name) {
+                const cookies = document.cookie.split(";").map(cookie => cookie.trim());
+                for (const cookie of cookies) {
+                    if (cookie.startsWith(name + "=")) {
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                return null;
+            }
+        });
+    </script>
+
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
     <footer class='rodape'>
         <div class='roda-1'>
           <div>
